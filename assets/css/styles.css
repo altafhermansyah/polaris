@@ -7,19 +7,24 @@
 
   /*========== Colors ==========*/
   /* Change favorite color to match images */
-  /*Green dark 190 - Green 171 - Grren Blue 200*/
-  --hue-color: 190;
 
-  /* HSL color mode */
-  --first-color: hsl(var(--hue-color), 64%, 22%);
-  --first-color-second: hsl(var(--hue-color), 64%, 22%);
-  --first-color-alt: hsl(var(--hue-color), 64%, 15%);
-  --title-color: hsl(var(--hue-color), 64%, 18%);
-  --text-color: hsl(var(--hue-color), 24%, 35%);
-  --text-color-light: hsl(var(--hue-color), 8%, 60%);
-  --input-color: hsl(var(--hue-color), 24%, 97%);
-  --body-color: hsl(var(--hue-color), 100%, 99%);
+/* HSL color mode - LIGHT MODE BARU (Sejuk & Bersih) */
+
+  --hue-color: 215;
+
+  --first-color: hsl(195, 80%, 50%);
+  --first-color-second: hsl(195, 80%, 50%); /* Samakan saja */
+  --first-color-alt: hsl(195, 80%, 45%); /* Untuk hover */
+
+  --title-color: hsl(var(--hue-color), 40%, 25%);
+  --text-color: hsl(var(--hue-color), 25%, 35%);
+  --text-color-light: hsl(var(--hue-color), 15%, 60%);
+
+  --body-color: hsl(var(--hue-color), 60%, 98%);
+  --input-color: hsl(var(--hue-color), 60%, 95%);
+
   --white-color: #FFF;
+
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
 
@@ -71,15 +76,31 @@
 }
 
 /*========== Variables Dark theme ==========*/
+/* Palet Dark Mode Baru - Sesuai Gambar */
 body.dark-theme {
-  --first-color-second: hsl(var(--hue-color), 54%, 12%);
-  --title-color: hsl(var(--hue-color), 24%, 95%);
-  --text-color: hsl(var(--hue-color), 8%, 75%);
-  --input-color: hsl(var(--hue-color), 29%, 16%);
-  --body-color: hsl(var(--hue-color), 29%, 12%);
-  --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
-  --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
-}
+  /* HUE UTAMA: Diambil dari warna langit biru gelap (215) */
+  --hue-color: 215;
+
+  /* AKSEN UTAMA: Diambil dari warna cincin planet (195) */
+  /* Ini adalah variabel baru/yang diedit agar warnanya menyala */
+  --first-color: hsl(195, 90%, 55%);
+  --first-color-alt: hsl(195, 90%, 48%); /* Untuk hover */
+
+  /* Warna sekunder (bisa jadi biru gelap atau cyan gelap) */
+  --first-color-second: hsl(var(--hue-color), 30%, 15%);
+
+  /* TEKS: Diambil dari warna bintang/planet (putih keperakan) */
+  --title-color: hsl(var(--hue-color), 20%, 95%);
+  --text-color: hsl(var(--hue-color), 15%, 75%);
+
+  /* BACKGROUND: Diambil dari area langit/bayangan tergelap */
+  --body-color: hsl(var(--hue-color), 40%, 8%);
+  --input-color: hsl(var(--hue-color), 30%, 12%);
+  
+  /* Scrollbar: Disesuaikan agar kontras */
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 40%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 60%);
+}s
 
 /*========== Button Dark/Light ==========*/
 .nav__dark {
@@ -292,6 +313,22 @@ input {
   left: 0;
 }
 
+/* ===========================================
+   CSS BARU UNTUK HOME SECTION (TINGGAL TEMPEL)
+   =========================================== */
+
+/* 1. Keyframes untuk animasi "Fade In Up" */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /*=============== HOME ===============*/
 .home__img {
   position: absolute;
@@ -301,7 +338,11 @@ input {
   height: 100vh;
   object-fit: cover;
   object-position: 83%;
+  /* Opsional: Efek zoom perlahan (Ken Burns) */
+  /* animation: kenburns 20s ease-in-out infinite alternate; */
 }
+/* @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } } */
+
 
 .home__container {
   position: relative;
@@ -317,38 +358,68 @@ input {
   color: var(--white-color);
 }
 
+/* 2. Terapkan animasi masuk ke elemen data */
+.home__data-subtitle,
+.home__data-title,
+.home__social,
+.button {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0; /* Mulai dari transparan */
+}
+
 .home__data-subtitle {
   display: block;
   font-weight: var(--font-semi-bold);
   margin-bottom: var(--mb-0-75);
+  animation-delay: 0.2s;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+ /* Muncul kedua */
 }
 
 .home__data-title {
   font-size: var(--biggest-font-size);
   font-weight: var(--font-medium);
   margin-bottom: var(--mb-2-5);
+  animation-delay: 0.1s;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+ /* Muncul pertama */
 }
 
+/* 3. Ubah .home__social menjadi horizontal */
 .home__social {
   display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
+  flex-direction: row; /* BARU: Jadi horizontal */
+  column-gap: 2rem;     /* BARU: Jarak antar ikon */
+  margin-top: 2rem;     /* BARU: Jarak dari tombol */
+  animation-delay: 0.6s;  /* Muncul terakhir */
 }
 
 .home__social-link {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   width: max-content;
+  transition: transform 0.3s ease, color 0.3s ease; /* BARU: Transisi halus */
 }
 
+.home__social-link:hover {
+  transform: translateY(-3px); /* BARU: Efek hover naik */
+  color: var(--first-color-alt); /* BARU: Samakan warna hover dgn tombol */
+}
+
+/* 4. Ubah .home__info menjadi "Glassmorphism" */
 .home__info {
-  background-color: var(--first-color);
+  /* Hapus background-color solid */
+  background-color: rgba(255, 255, 255, 0.1); /* BARU: Latar transparan */
+  backdrop-filter: blur(10px); /* BARU: Efek blur kaca */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* BARU: Garis tepi tipis */
+  border-radius: 12px; /* BARU: Sudut lebih halus */
+  
   display: flex;
   padding: 1.5rem 1rem;
   align-items: center;
   column-gap: .5rem;
   position: absolute;
-  right: 0;
-  bottom: 1rem;
+  right: 1.5rem; /* BARU: Beri jarak dari tepi */
+  bottom: 1.5rem; /* BARU: Beri jarak dari tepi */
   width: 228px;
 }
 
@@ -357,6 +428,7 @@ input {
   font-size: var(--small-font-size);
   font-weight: var(--font-semi-bold);
   margin-bottom: var(--mb-0-75);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
 }
 
 .home__info-button {
@@ -365,6 +437,7 @@ input {
 
 .home__info-overlay {
   overflow: var(--img-hidden);
+  border-radius: 6px; /* BARU: Samakan sudut gambar dgn box */
 }
 
 .home__info-img {
@@ -383,11 +456,19 @@ input {
   color: var(--white-color);
   padding: 1rem 2rem;
   font-weight: var(--font-semi-bold);
-  transition: .3s;
+  border-radius: 6px; /* BARU: Sudut lebih halus */
+  transition: all .3s ease-out; /* BARU: Transisi lebih smooth */
+  
+  /* Terapkan animasi masuk */
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.4s; /* Muncul setelah judul */
 }
 
 .button:hover {
   background-color: var(--first-color-alt);
+  transform: translateY(-3px); /* BARU: Efek hover naik */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* BARU: Bayangan halus */
 }
 
 .button--flex {
@@ -403,6 +484,8 @@ input {
 
 .button--link:hover {
   background: none;
+  transform: none; /* Hapus efek naik */
+  box-shadow: none; /* Hapus bayangan */
 }
 
 /*=============== ABOUT ===============*/
@@ -955,7 +1038,7 @@ input {
   }
   .footer__rights {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 
@@ -975,6 +1058,9 @@ input {
   }
   .home__info-title {
     font-size: var(--normal-font-size);
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
   }
   .home__info-img {
     width: 240px;
