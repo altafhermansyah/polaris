@@ -484,63 +484,171 @@ input {
 
 .button--link:hover {
   background: none;
-  transform: none; /* Hapus efek naik */
-  box-shadow: none; /* Hapus bayangan */
+  transform: none; 
+  box-shadow: none; 
 }
 
 /*=============== ABOUT ===============*/
-.about__data {
-  text-align: center;
-}
+/* ===========================================
+   CSS BARU UNTUK SECTION "ABOUT" (DISRUPTION 101)
+   =========================================== */
 
 .about__container {
+  /* Tidak perlu grid di container utama, biarkan mengalir */
   row-gap: 2.5rem;
 }
 
+/* * 1. Styling Teks Intro 
+ */
+.about__data {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about__title {
+  text-justify: center;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--first-color); 
+  margin-bottom: 1rem;
+}
+
 .about__description {
-  margin-bottom: var(--mb-2);
+  color: var(--text-color);
+  max-width: 600px; /* Batasi lebar paragraf */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  text-align: center;
 }
 
-.about__img {
-  display: flex;
-  column-gap: 1rem;
-  align-items: center;
-  justify-content: center;
+.about__description-lead {
+  /* Menggantikan <b> dengan CSS */
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color); /* Buat lebih menonjol */
+  font-size: 1.1rem;
 }
 
-.about__img-overlay {
-  overflow: var(--img-hidden);
+
+/* * 2. Styling 3 Kartu Disrupsi
+ */
+.about__cards {
+  /* Menggunakan CSS Grid untuk kartu
+    - 1 kolom di HP
+    - 3 kolom di Desktop
+  */
+  display: grid;
+  grid-template-columns: 1fr; /* Default 1 kolom */
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.about__img-one {
-  width: 130px;
+.about__card {
+  /* Menggunakan warna 'input' dari palet tema kita
+    sebagai warna latar kartu.
+  */
+  background-color: var(--input-color);
+  border: 1px solid var(--first-color-alt); /* Garis tepi cyan */
+  padding: 2rem 1.5rem;
+  border-radius: 12px; /* Samakan dengan 'glassmorphism' */
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about__img-two {
-  width: 180px;
+.about__card:hover {
+  transform: translateY(-5px); /* Efek 'terangkat' saat di-hover */
+  /* Efek 'glow' sci-fi dengan warna aksen */
+  box-shadow: 0 4px 20px hsla(var(--first-color), 0.3); 
 }
 
-.about__img-one, 
-.about__img-two {
-  transition: var(--img-transition);
+.about__card-icon {
+  font-size: 2.5rem; /* Ukuran ikon */
+  color: var(--first-color); /* Warna ikon (cyan) */
+  margin-bottom: 1rem;
+  display: block; /* Agar margin berfungsi */
 }
 
-.about__img-one:hover, 
-.about__img-two:hover {
-  transform: var(--img-scale);
+.about__card-title {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+}
+
+.about__card-description {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* * 3. Styling Teks Transisi 
+ */
+.about__transition {
+  text-align: center;
+  margin-top: 4rem; /* Jarak dari kartu */
+}
+
+.about__transition-title {
+  color: var(--title-color);
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 1.5rem;
+}
+
+/* * 4. RESPONSIVE (PENTING)
+ * Membuat kartu menjadi 3 kolom di layar lebar
+ */
+@media screen and (min-width: 992px) {
+  .about__cards {
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+  }
+
+  .about__data {
+    margin-bottom: 3rem;
+  }
 }
 
 /*=============== DISCOVER ===============*/
+.discover__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.swiper-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
 .discover__card {
   position: relative;
-  width: 200px;
-  overflow: var(--img-hidden);
+  width: 350px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+
+.discover__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--img-transition);
+}
+
+.discover__img:hover {
+  transform: var(--img-scale);
 }
 
 .discover__data {
   position: absolute;
   bottom: 1.5rem;
   left: 1rem;
+  right: 1rem;
 }
 
 .discover__title, 
@@ -558,17 +666,40 @@ input {
   font-size: var(--smaller-font-size);
 }
 
-.discover__img {
-  transition: var(--img-transition);
-}
-
-.discover__img:hover {
-  transform: var(--img-scale);
-}
-
 .swiper-container-3d .swiper-slide-shadow-left,
 .swiper-container-3d .swiper-slide-shadow-right {
   background-image: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .discover__card {
+    width: 300px;
+    height: 450px;
+  }
+  
+  .discover__container {
+    gap: 1.5rem;
+  }
+  
+  .swiper-wrapper {
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .discover__card {
+    width: 280px;
+    height: 400px;
+  }
+  
+  .discover__container {
+    gap: 1rem;
+  }
+  
+  .swiper-wrapper {
+    gap: 1rem;
+  }
 }
 
 /*=============== EXPERIENCE ===============*/
