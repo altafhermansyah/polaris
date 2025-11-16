@@ -159,3 +159,22 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+/*==================== ACCORDION TOOLKIT ====================*/
+    const accordionItems = document.querySelectorAll('.toolkit__item');
+
+    accordionItems.forEach((item) => {
+        const header = item.querySelector('.toolkit__header');
+
+        header.addEventListener('click', () => {
+            // Tutup semua item lain
+            accordionItems.forEach((otherItem) => {
+                if (otherItem !== item && otherItem.classList.contains('open')) {
+                    otherItem.classList.remove('open');
+                }
+            });
+
+            // Buka/Tutup item yang diklik
+            item.classList.toggle('open');
+        });
+    });

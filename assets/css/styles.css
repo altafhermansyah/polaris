@@ -495,7 +495,10 @@ input {
 
 .about__container {
   /* Tidak perlu grid di container utama, biarkan mengalir */
-  row-gap: 2.5rem;
+  /* row-gap: 2.5rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* * 1. Styling Teks Intro 
@@ -506,7 +509,9 @@ input {
 }
 
 .about__title {
-  text-justify: center;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
   font-style: italic;
   font-weight: 700;
   color: var(--first-color); 
@@ -584,7 +589,6 @@ input {
  */
 .about__transition {
   text-align: center;
-  margin-top: 4rem; /* Jarak dari kartu */
 }
 
 .about__transition-title {
@@ -607,51 +611,48 @@ input {
   }
 }
 
-/*=============== DISCOVER ===============*/
-.discover__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/*=============== DISCOVER (SKILL NAVIGATOR) ===============*/
+/* Menggunakan Grid, bukan Swiper, untuk responsivitas yang lebih baik */
+.discover__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  padding: 2rem 0;
-}
-
-.swiper-wrapper {
-  display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
 }
 
 .discover__card {
   position: relative;
-  width: 350px;
-  height: 500px;
+  width: 100%; /* Biarkan fleksibel */
+  min-height: 450px; /* Tinggi minimum untuk konsistensi */
+  height: auto; /* Biarkan konten menentukan tinggi */
   overflow: hidden;
   border-radius: 1rem;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .discover__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: var(--img-transition);
+  transition: var(--img-transition) 0.4s;
 }
 
-.discover__img:hover {
+.discover__card:hover .discover__img {
   transform: var(--img-scale);
 }
 
 .discover__data {
   position: absolute;
-  bottom: 1.5rem;
-  left: 1rem;
-  right: 1rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  /* Gradient overlay untuk keterbacaan teks */
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.9) 100%);
 }
 
-.discover__title, 
+.discover__title,  
 .discover__description {
   color: var(--white-color);
 }
@@ -664,97 +665,177 @@ input {
 .discover__description {
   display: block;
   font-size: var(--smaller-font-size);
+  font-style: italic;
+  margin-bottom: var(--mb-1);
 }
 
+/* CSS BARU: Daftar detail skill */
+.discover__details {
+  list-style-type: none;
+  padding-left: 0;
+  color: var(--white-color);
+}
+
+.discover__details li {
+  display: flex;
+  align-items: center;
+  font-size: var(--small-font-size);
+  margin-bottom: var(--mb-0-5);
+}
+
+.discover__details li i {
+  font-size: 1.2rem;
+  margin-right: var(--mb-0-5);
+  color: var(--first-color); /* Warna aksen Anda */
+  min-width: 20px;
+}
+
+/* Hapus CSS Swiper yang tidak perlu jika tidak dipakai */
+/*
 .swiper-container-3d .swiper-slide-shadow-left,
 .swiper-container-3d .swiper-slide-shadow-right {
   background-image: none;
 }
+*/
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .discover__card {
-    width: 300px;
-    height: 450px;
-  }
-  
-  .discover__container {
-    gap: 1.5rem;
-  }
-  
-  .swiper-wrapper {
-    gap: 1.5rem;
-  }
-}
 
-@media screen and (max-width: 480px) {
-  .discover__card {
-    width: 280px;
-    height: 400px;
-  }
-  
-  .discover__container {
-    gap: 1rem;
-  }
-  
-  .swiper-wrapper {
-    gap: 1rem;
-  }
-}
+/*=============== EXPERIENCE (RESOURCE HUB) ===============*/
+/* Menghapus semua CSS 'experience' lama */
+/* CSS BARU: Menggantinya dengan Accordion Toolkit */
 
-/*=============== EXPERIENCE ===============*/
 .experience__container {
-  row-gap: 2.5rem;
+  /* Hanya untuk membungkus .toolkit__container */
+  display: flex;
   justify-content: center;
-  justify-items: center;
+  padding: 1rem 0;
 }
 
-.experience__content {
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 1rem;
-  justify-items: center;
-  padding: 0 2rem;
+.toolkit__container {
+  max-width: 768px; /* Lebar optimal untuk accordion */
+  width: 100%;
+  display: grid;
+  gap: 1.5rem;
 }
 
-.experience__number {
-  font-size: var(--h2-font-size);
-  font-weight: var(--font-semi-bold);
-  margin-bottom: var(--mb-0-5);
+.toolkit__item {
+  background-color: var(--white-color);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
 }
 
-.experience__description {
+.toolkit__header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.toolkit__icon {
+  font-size: 1.75rem;
+  color: var(--first-color);
+}
+
+.toolkit__title {
+  font-size: var(--h3-font-size);
+  color: var(--dark-color);
+  font-weight: 600; /* Semi-bold */
+}
+
+.toolkit__arrow {
+  font-size: 1.5rem;
+  color: var(--dark-color);
+  transition: transform 0.3s ease;
+}
+
+.toolkit__content {
+  max-height: 0; /* Awalnya tertutup */
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.toolkit__list {
+  list-style: none;
+  padding: 0 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.toolkit__resource {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+
+.toolkit__resource:last-child {
+  border-bottom: none;
+  padding-bottom: 0; /* Hapus padding bawah untuk item terakhir */
+}
+
+.resource__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--mb-0-25);
+  color: var(--dark-color);
+}
+
+.resource__description {
   font-size: var(--small-font-size);
+  color: var(--dark-color);
+  max-width: 350px; /* Batasi lebar teks deskripsi */
 }
 
-.experience__img {
-  position: relative;
-  padding-bottom: 2rem;
+.resource__link {
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap; /* Mencegah 'Kunjungi' terpisah */
+  transition: opacity 0.3s ease;
 }
 
-.experience__img-one, 
-.experience__img-two {
-  transition: var(--img-transition);
+.resource__link:hover {
+  opacity: 0.7;
 }
 
-.experience__img-one:hover, 
-.experience__img-two:hover {
-  transform: var(--img-scale);
+/* Fungsionalitas Buka/Tutup Accordion */
+.toolkit__item.open {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--first-color-alt);
 }
 
-.experience__overlay {
-  overflow: var(--img-hidden);
+.toolkit__item.open .toolkit__arrow {
+  transform: rotate(-180deg);
 }
 
-.experience__overlay:nth-child(1) {
-  width: 263px;
-  margin-right: 2rem;
+.toolkit__item.open .toolkit__content {
+  max-height: 1000px; /* Atur ke nilai tinggi yang cukup */
+  padding-bottom: 1.5rem;
 }
 
-.experience__overlay:nth-child(2) {
-  width: 120px;
-  position: absolute;
-  top: 2rem;
-  right: 0;
+/*=============== RESPONSIVE (Toolkit) ===============*/
+@media screen and (max-width: 480px) {
+  .toolkit__header {
+    padding: 1.25rem;
+  }
+  .toolkit__title {
+    font-size: 1rem; /* Sedikit lebih kecil di HP */
+  }
+  .toolkit__resource {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .resource__link {
+    margin-top: var(--mb-0-5);
+  }
 }
 
 /*=============== VIDEO ===============*/
