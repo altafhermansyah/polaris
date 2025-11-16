@@ -143,166 +143,340 @@
         </section>
 
         <!--==================== SKILL NAVIGATOR ====================-->
-<section class="discover section" id="discover">
-    <h2 class="section__title">
-        Menjadi Future-Proof Bukan Pilihan, Tapi Keharusan.
-    </h2>
-    <p class="section__subtitle discover__subtitle">
-        Di era baru ini, fokus bergeser dari "apa yang kamu tahu" menjadi "seberapa cepat kamu bisa belajar". Kuasai dua pilar keterampilan ini.
-    </p>
+        <section class="discover section" id="discover">
+            <h2 class="section__title">
+                Menjadi Future-Proof Bukan Pilihan, Tapi Keharusan.
+            </h2>
+            <p class="section__subtitle discover__subtitle">
+                Di era baru ini, fokus bergeser dari "apa yang kamu tahu" menjadi "seberapa cepat kamu bisa belajar".
+                Kuasai dua pilar keterampilan ini.
+            </p>
 
-    <div class="discover__container container">
-        <div class="discover__grid">
-            
-            <div class="discover__card">
-                <img src="assets/img/discover1.jpg" alt="Technical Skills" class="discover__img">
-                <div class="discover__data">
-                    <h2 class="discover__title">Pilar 1: Keterampilan Teknis</h2>
-                    <span class="discover__description">Perlengkapan untuk membangun dan menganalisis.</span>
-                    
-                    <ul class="discover__details">
-                        <li><i class="ri-cpu-line"></i> <strong>Literasi AI:</strong> Berkolaborasi dengan AI, bukan hanya memakai.</li>
-                        <li><i class="ri-bar-chart-line"></i> <strong>Analisis Data:</strong> Membaca & menceritakan data untuk keputusan.</li>
-                        <li><i class="ri-shield-check-line"></i> <strong>Keamanan Siber:</strong> Melindungi aset digital di dunia terhubung.</li>
-                    </ul>
+            <div class="discover__container container">
+                <div class="discover__grid">
+
+                    <!-- Card 1: Technical Skills -->
+                    <div class="discover__card" onclick="openModal(1)">
+                        <div class="discover__icon">
+                            <i class="ri-cpu-line"></i>
+                        </div>
+                        <div class="discover__data">
+                            <h2 class="discover__title">Pilar 1: Keterampilan Teknis</h2>
+                            <p class="discover__description">
+                                Perlengkapan untuk membangun dan menganalisis.
+                            </p>
+                            <div class="discover__preview">
+                                <div class="preview__item">
+                                    <i class="ri-cpu-line"></i>
+                                    <span>Literasi AI</span>
+                                </div>
+                                <div class="preview__item">
+                                    <i class="ri-bar-chart-line"></i>
+                                    <span>Analisis Data</span>
+                                </div>
+                                <div class="preview__item">
+                                    <i class="ri-shield-check-line"></i>
+                                    <span>Keamanan Siber</span>
+                                </div>
+                            </div>
+                            <button class="discover__button">
+                                Pelajari Lebih Lanjut
+                                <i class="ri-arrow-right-line"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Human Skills -->
+                    <div class="discover__card" onclick="openModal(2)">
+                        <div class="discover__icon">
+                            <i class="ri-heart-pulse-line"></i>
+                        </div>
+                        <div class="discover__data">
+                            <h2 class="discover__title">Pilar 2: Keterampilan Manusiawi</h2>
+                            <p class="discover__description">
+                                Pembeda yang tidak bisa diotomatisasi oleh AI.
+                            </p>
+                            <div class="discover__preview">
+                                <div class="preview__item">
+                                    <i class="ri-lightbulb-line"></i>
+                                    <span>Berpikir Kritis</span>
+                                </div>
+                                <div class="preview__item">
+                                    <i class="ri-magic-line"></i>
+                                    <span>Kreativitas & Inovasi</span>
+                                </div>
+                                <div class="preview__item">
+                                    <i class="ri-refresh-line"></i>
+                                    <span>Adaptabilitas</span>
+                                </div>
+                            </div>
+                            <button class="discover__button">
+                                Pelajari Lebih Lanjut
+                                <i class="ri-arrow-right-line"></i>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+        </section>
 
-            <div class="discover__card">
-                <img src="assets/img/discover2.jpg" alt="Power Skills" class="discover__img">
-                <div class="discover__data">
-                    <h2 class="discover__title">Pilar 2: Keterampilan Manusiawi</h2>
-                    <span class="discover__description">Pembeda yang tidak bisa diotomatisasi oleh AI.</span>
-
-                    <ul class="discover__details">
-                        <li><i class="ri-lightbulb-line"></i> <strong>Berpikir Kritis:</strong> Memilih opsi terbaik dan tahu alasannya.</li>
-                        <li><i class="ri-magic-line"></i> <strong>Kreativitas & Inovasi:</strong> Menghubungkan titik tak terduga.</li>
-                        <li><i class="ri-refresh-line"></i> <strong>Adaptabilitas:</strong> Kemampuan 'lupa' cara lama & 'belajar' cara baru.</li>
-                    </ul>
+        <!-- Modal 1: Technical Skills -->
+        <div class="modal" id="modal1" onclick="closeModalOnBackdrop(1, event)">
+            <div class="modal__content" onclick="event.stopPropagation()">
+                <div class="modal__gradient"></div>
+                <button class="modal__close" onclick="closeModal(1)">
+                    <i class="ri-close-line"></i>
+                </button>
+                <div class="modal__header">
+                    <div class="modal__icon">
+                        <i class="ri-cpu-line"></i>
+                    </div>
+                    <h2 class="modal__title">Pilar 1: Keterampilan Teknis</h2>
+                    <p class="modal__description">
+                        Perlengkapan untuk membangun dan menganalisis di era digital yang terus berkembang.
+                    </p>
                 </div>
+                <ul class="modal__details">
+                    <li class="modal__item">
+                        <div class="modal__item-icon">
+                            <i class="ri-cpu-line"></i>
+                        </div>
+                        <div class="modal__item-content">
+                            <strong class="modal__item-title">Literasi AI</strong>
+                            <p class="modal__item-text">
+                                Berkolaborasi dengan AI, bukan hanya memakai. Pahami cara kerja AI, limitasinya,
+                                dan bagaimana mengintegrasikannya dalam workflow untuk meningkatkan produktivitas
+                                dan inovasi yang berkelanjutan.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="modal__item">
+                        <div class="modal__item-icon">
+                            <i class="ri-bar-chart-line"></i>
+                        </div>
+                        <div class="modal__item-content">
+                            <strong class="modal__item-title">Analisis Data</strong>
+                            <p class="modal__item-text">
+                                Membaca & menceritakan data untuk keputusan yang lebih baik. Kuasai skill
+                                mengolah data mentah menjadi insight yang actionable dan mampu
+                                mengkomunikasikannya dengan jelas kepada stakeholder.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="modal__item">
+                        <div class="modal__item-icon">
+                            <i class="ri-shield-check-line"></i>
+                        </div>
+                        <div class="modal__item-content">
+                            <strong class="modal__item-title">Keamanan Siber</strong>
+                            <p class="modal__item-text">
+                                Melindungi aset digital di dunia yang semakin terhubung. Pahami prinsip dasar
+                                keamanan, threat landscape, dan best practices untuk menjaga data dan sistem
+                                tetap aman dari ancaman siber.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
             </div>
-
         </div>
-    </div>
-</section>
 
-<!--==================== Exp ====================-->
-<section class="experience section" id="toolkit">
-    <h2 class="section__title">
-        Mulai dari Sini. Toolkit Pilihanmu.
-    </h2>
-    <p class="section__subtitle">
-        Belajar tidak harus mahal. Berikut adalah sumber daya gratis dan powerful yang sudah kami kurasi untukmu.
-    </p>
-
-    <div class="experience__container container grid">
-        <div class="toolkit__container">
-
-            <div class="toolkit__item">
-                <header class="toolkit__header">
-                    <i class="ri-robot-2-line toolkit__icon"></i>
-                    <h3 class="toolkit__title">Kuasai AI & Produktivitas</h3>
-                    <i class="ri-arrow-down-s-line toolkit__arrow"></i>
-                </header>
-
-                <div class="toolkit__content">
-                    <ul class="toolkit__list">
-                        <li class="toolkit__resource">
-                            <div>
-                                <h4 class="resource__title">Notion AI</h4>
-                                <p class="resource__description">Catatan, manajemen tugas, dan AI writer dalam satu tempat.</p>
-                            </div>
-                            <a href="#" class="resource__link" target="_blank">Kunjungi <i class="ri-external-link-line"></i></a>
-                        </li>
-                        <li class="toolkit__resource">
-                            <div>
-                                <h4 class="resource__title">ChatGPT / Gemini</h4>
-                                <p class="resource__description">Asisten pribadimu untuk brainstorming, coding, dan menulis.</p>
-                            </div>
-                            <a href="#" class="resource__link" target="_blank">Kunjungi <i class="ri-external-link-line"></i></a>
-                        </li>
-                        <li class="toolkit__resource">
-                            <div>
-                                <h4 class="resource__title">Google AI Essentials</h4>
-                                <p class="resource__description">Kursus gratis dari Google untuk memahami AI secara fundamental.</p>
-                            </div>
-                            <a href="#" class="resource__link" target="_blank">Kunjungi <i class="ri-external-link-line"></i></a>
-                        </li>
-                    </ul>
+        <!-- Modal 2: Human Skills -->
+        <div class="modal" id="modal2" onclick="closeModalOnBackdrop(2, event)">
+            <div class="modal__content" onclick="event.stopPropagation()">
+                <div class="modal__gradient"></div>
+                <button class="modal__close" onclick="closeModal(2)">
+                    <i class="ri-close-line"></i>
+                </button>
+                <div class="modal__header">
+                    <div class="modal__icon">
+                        <i class="ri-heart-pulse-line"></i>
+                    </div>
+                    <h2 class="modal__title">Pilar 2: Keterampilan Manusiawi</h2>
+                    <p class="modal__description">
+                        Pembeda yang tidak bisa diotomatisasi oleh AI - kekuatan unik manusia.
+                    </p>
                 </div>
+                <ul class="modal__details">
+                    <li class="modal__item">
+                        <div class="modal__item-icon">
+                            <i class="ri-lightbulb-line"></i>
+                        </div>
+                        <div class="modal__item-content">
+                            <strong class="modal__item-title">Berpikir Kritis</strong>
+                            <p class="modal__item-text">
+                                Memilih opsi terbaik dan tahu alasannya. Kemampuan untuk menganalisis informasi
+                                secara objektif, mengevaluasi berbagai perspektif, dan membuat keputusan yang
+                                logis serta well-informed dalam situasi kompleks.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="modal__item">
+                        <div class="modal__item-icon">
+                            <i class="ri-magic-line"></i>
+                        </div>
+                        <div class="modal__item-content">
+                            <strong class="modal__item-title">Kreativitas & Inovasi</strong>
+                            <p class="modal__item-text">
+                                Menghubungkan titik tak terduga untuk menciptakan solusi baru. Berpikir di luar
+                                kotak, challenge status quo, dan menghasilkan ide-ide original yang membawa
+                                nilai tambah signifikan bagi organisasi.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="modal__item">
+                        <div class="modal__item-icon">
+                            <i class="ri-refresh-line"></i>
+                        </div>
+                        <div class="modal__item-content">
+                            <strong class="modal__item-title">Adaptabilitas</strong>
+                            <p class="modal__item-text">
+                                Kemampuan 'lupa' cara lama & 'belajar' cara baru dengan cepat. Fleksibel dalam
+                                menghadapi perubahan, open-minded terhadap ide baru, dan mampu berkembang di
+                                lingkungan yang dinamis dan penuh ketidakpastian.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
             </div>
-
-            <div class="toolkit__item">
-                <header class="toolkit__header">
-                    <i class="ri-code-s-slash-line toolkit__icon"></i>
-                    <h3 class="toolkit__title">Asah Skill Teknis</h3>
-                    <i class="ri-arrow-down-s-line toolkit__arrow"></i>
-                </header>
-
-                <div class="toolkit__content">
-                    <ul class="toolkit__list">
-                        <li class="toolkit__resource">
-                            <div>
-                                <h4 class="resource__title">freeCodeCamp</h4>
-                                <p class="resource__description">Belajar coding dari dasar hingga mahir. Gratis dan berbasis proyek.</p>
-                            </div>
-                            <a href="#" class="resource__link" target="_blank">Kunjungi <i class="ri-external-link-line"></i></a>
-                        </li>
-                        <li class="toolkit__resource">
-                            <div>
-                                <h4 class="resource__title">Google Digital Garage</h4>
-                                <p class="resource__description">Sertifikasi gratis untuk Digital Marketing, Data, dan Cloud.</p>
-                            </div>
-                            <a href="#" class="resource__link" target="_blank">Kunjungi <i class="ri-external-link-line"></i></a>
-                        </li>
-                        <li class="toolkit__resource">
-                            <div>
-                                <h4 class="resource__title">W3Schools</h4>
-                                <p class="resource__description">Referensi cepat dan terpercaya untuk semua kebutuhan web dev.</p>
-                            </div>
-                            <a href="#" class="resource__link" target="_blank">Kunjungi <i class="ri-external-link-line"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="toolkit__item">
-                <header class="toolkit__header">
-                    <i class="ri-user-voice-line toolkit__icon"></i>
-                    <h3 class="toolkit__title">Bangun Portofolio & Jaringan</h3>
-                    <i class="ri-arrow-down-s-line toolkit__arrow"></i>
-                </header>
-
-                <div class="toolkit__content">
-                    <ul class="toolkit__list">
-                        <li class="toolkit__resource">
-                            <div>
-                                <h4 class="resource__title">GitHub</h4>
-                                <p class="resource__description">Wajib bagi developer. Tunjukkan kodemu, bangun portofoliomu.</p>
-                            </div>
-                            <a href="#" class="resource__link" target="_blank">Kunjungi <i class="ri-external-link-line"></i></a>
-                        </li>
-                        <li class="toolkit__resource">
-                            <div>
-                                <h4 class="resource__title">LinkedIn</h4>
-                                <p class="resource__description">Bangun personal branding profesionalmu dan terhubung dengan industri.</p>
-                            </div>
-                            <a href="#" class="resource__link" target="_blank">Kunjungi <i class="ri-external-link-line"></i></a>
-                        </li>
-                        <li class="toolkit__resource">
-                            <div>
-                                <h4 class="resource__title">Dribbble / Behance</h4>
-                                <p class="resource__description">Portofolio visual untuk kamu yang fokus di bidang desain UI/UX.</p>
-                            </div>
-                            <a href="#" class="resource__link" target="_blank">Kunjungi <i class="ri-external-link-line"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
-    </div>
-</section>
+
+        <!--==================== Exp ====================-->
+        <section class="experience section" id="toolkit">
+            <h2 class="section__title">
+                Mulai dari Sini. Toolkit Pilihanmu.
+            </h2>
+            <p class="section__subtitle">
+                Belajar tidak harus mahal. Berikut adalah sumber daya gratis dan powerful yang sudah kami kurasi
+                untukmu.
+            </p>
+
+            <div class="experience__container container grid">
+                <div class="toolkit__container">
+
+                    <div class="toolkit__item">
+                        <header class="toolkit__header">
+                            <i class="ri-robot-2-line toolkit__icon"></i>
+                            <h3 class="toolkit__title">Kuasai AI & Produktivitas</h3>
+                            <i class="ri-arrow-down-s-line toolkit__arrow"></i>
+                        </header>
+
+                        <div class="toolkit__content">
+                            <ul class="toolkit__list">
+                                <li class="toolkit__resource">
+                                    <div>
+                                        <h4 class="resource__title">Notion AI</h4>
+                                        <p class="resource__description">Catatan, manajemen tugas, dan AI writer dalam
+                                            satu tempat.</p>
+                                    </div>
+                                    <a href="https://www.notion.com/" class="resource__link" target="_blank">Kunjungi <i
+                                            class="ri-external-link-line"></i></a>
+                                </li>
+                                <li class="toolkit__resource">
+                                    <div>
+                                        <h4 class="resource__title">Gemini</h4>
+                                        <p class="resource__description">Asisten pribadimu untuk brainstorming, coding,
+                                            dan menulis.</p>
+                                    </div>
+                                    <a href="https://gemini.google.com/app" class="resource__link" target="_blank">Kunjungi <i
+                                            class="ri-external-link-line"></i></a>
+                                </li>
+                                <li class="toolkit__resource">
+                                    <div>
+                                        <h4 class="resource__title">Google AI Essentials</h4>
+                                        <p class="resource__description">Kursus gratis dari Google untuk memahami AI
+                                            secara fundamental.</p>
+                                    </div>
+                                    <a href="https://www.skills.google/paths/2336" class="resource__link" target="_blank">Kunjungi <i
+                                            class="ri-external-link-line"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="toolkit__item">
+                        <header class="toolkit__header">
+                            <i class="ri-code-s-slash-line toolkit__icon"></i>
+                            <h3 class="toolkit__title">Asah Skill Teknis</h3>
+                            <i class="ri-arrow-down-s-line toolkit__arrow"></i>
+                        </header>
+
+                        <div class="toolkit__content">
+                            <ul class="toolkit__list">
+                                <li class="toolkit__resource">
+                                    <div>
+                                        <h4 class="resource__title">freeCodeCamp</h4>
+                                        <p class="resource__description">Belajar coding dari dasar hingga mahir. Gratis
+                                            dan berbasis proyek.</p>
+                                    </div>
+                                    <a href="https://www.freecodecamp.org/" class="resource__link" target="_blank">Kunjungi <i
+                                            class="ri-external-link-line"></i></a>
+                                </li>
+                                <li class="toolkit__resource">
+                                    <div>
+                                        <h4 class="resource__title">Google Digital Garage</h4>
+                                        <p class="resource__description">Sertifikasi gratis untuk Digital Marketing,
+                                            Data, dan Cloud.</p>
+                                    </div>
+                                    <a href="https://grow.google/intl/uk/#filter" class="resource__link" target="_blank">Kunjungi <i
+                                            class="ri-external-link-line"></i></a>
+                                </li>
+                                <li class="toolkit__resource">
+                                    <div>
+                                        <h4 class="resource__title">W3Schools</h4>
+                                        <p class="resource__description">Referensi cepat dan terpercaya untuk semua
+                                            kebutuhan web dev.</p>
+                                    </div>
+                                    <a href="https://www.w3schools.com/" class="resource__link" target="_blank">Kunjungi <i
+                                            class="ri-external-link-line"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="toolkit__item">
+                        <header class="toolkit__header">
+                            <i class="ri-user-voice-line toolkit__icon"></i>
+                            <h3 class="toolkit__title">Bangun Portofolio & Jaringan</h3>
+                            <i class="ri-arrow-down-s-line toolkit__arrow"></i>
+                        </header>
+
+                        <div class="toolkit__content">
+                            <ul class="toolkit__list">
+                                <li class="toolkit__resource">
+                                    <div>
+                                        <h4 class="resource__title">GitHub</h4>
+                                        <p class="resource__description">Wajib bagi developer. Tunjukkan kodemu, bangun
+                                            portofoliomu.</p>
+                                    </div>
+                                    <a href="https://github.com/" class="resource__link" target="_blank">Kunjungi <i
+                                            class="ri-external-link-line"></i></a>
+                                </li>
+                                <li class="toolkit__resource">
+                                    <div>
+                                        <h4 class="resource__title">LinkedIn</h4>
+                                        <p class="resource__description">Bangun personal branding profesionalmu dan
+                                            terhubung dengan industri.</p>
+                                    </div>
+                                    <a href="https://www.linkedin.com/" class="resource__link" target="_blank">Kunjungi <i
+                                            class="ri-external-link-line"></i></a>
+                                </li>
+                                <li class="toolkit__resource">
+                                    <div>
+                                        <h4 class="resource__title">Dribbble</h4>
+                                        <p class="resource__description">Portofolio visual untuk kamu yang fokus di
+                                            bidang desain UI/UX.</p>
+                                    </div>
+                                    <a href="https://dribbble.com/" class="resource__link" target="_blank">Kunjungi <i
+                                            class="ri-external-link-line"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
         <!--==================== VIDEO ====================-->
         <section class="video section">

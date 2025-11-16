@@ -178,3 +178,30 @@ themeButton.addEventListener('click', () => {
             item.classList.toggle('open');
         });
     });
+
+// Modal Functions
+    function openModal(num) {
+        const modal = document.getElementById('modal' + num);
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(num) {
+        const modal = document.getElementById('modal' + num);
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnBackdrop(num, event) {
+        if (event.target === event.currentTarget) {
+            closeModal(num);
+        }
+    }
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal(1);
+            closeModal(2);
+        }
+    });

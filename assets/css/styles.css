@@ -611,230 +611,940 @@ input {
   }
 }
 
-/*=============== DISCOVER (SKILL NAVIGATOR) ===============*/
-/* Menggunakan Grid, bukan Swiper, untuk responsivitas yang lebih baik */
+/*=============== DISCOVER (SKILL NAVIGATOR) - FIXED VERSION ===============*/
+
+/* Section Subtitle */
+.section__subtitle {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--mb-2-5);
+  color: var(--text-color);
+  line-height: 1.8;
+  font-size: var(--normal-font-size);
+}
+
+.discover__subtitle {
+  margin-bottom: var(--mb-2-5);
+}
+
+/* Main Container - FIXED OVERFLOW */
+.discover__container {
+  max-width: 100%;
+  padding: 0 1rem;
+  overflow: visible; /* Pastikan tidak ada hidden overflow */
+}
+
 .discover__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 2rem;
+  max-width: 1100px; /* Dikurangi untuk memberi ruang */
+  margin: 0 auto;
 }
 
+/* Card Styling - LEBAR OPTIMAL AGAR BERJEJERAN */
 .discover__card {
+  background: var(--input-color);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
   position: relative;
-  width: 100%; /* Biarkan fleksibel */
-  min-height: 450px; /* Tinggi minimum untuk konsistensi */
-  height: auto; /* Biarkan konten menentukan tinggi */
   overflow: hidden;
-  border-radius: 1rem;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  
+  /* KUNCI: Kontrol lebar optimal agar 2 card bisa sejajar */
+  flex: 1 1 450px; /* Grow, shrink, basis 450px */
+  min-width: 300px; /* Minimum width untuk mobile */
+  max-width: 500px; /* Maximum width per card */
 }
 
-.discover__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--img-transition) 0.4s;
+body.dark-theme .discover__card {
+  background: var(--input-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.discover__card:hover .discover__img {
-  transform: var(--img-scale);
-}
-
-.discover__data {
+/* Gradient Top Border Effect */
+.discover__card::before {
+  content: '';
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  padding: 1.5rem;
-  /* Gradient overlay untuk keterbacaan teks */
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.9) 100%);
+  height: 6px;
+  background: linear-gradient(90deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
 }
 
-.discover__title,  
-.discover__description {
+.discover__card:hover::before {
+  transform: translateY(0);
+}
+
+.discover__card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: var(--first-color);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+body.dark-theme .discover__card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* Icon Container */
+.discover__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 32px hsla(195, 80%, 50%, 0.4);
+  transition: all 0.3s ease;
+}
+
+body.dark-theme .discover__icon {
+  box-shadow: 0 12px 32px hsla(195, 90%, 55%, 0.5);
+}
+
+.discover__card:hover .discover__icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.discover__icon i {
+  font-size: 2.5rem;
   color: var(--white-color);
+}
+
+/* Card Content */
+.discover__data {
+  position: relative;
 }
 
 .discover__title {
-  font-size: var(--h3-font-size);
-  margin-bottom: var(--mb-0-25);
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .discover__description {
-  display: block;
-  font-size: var(--smaller-font-size);
-  font-style: italic;
-  margin-bottom: var(--mb-1);
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
-/* CSS BARU: Daftar detail skill */
-.discover__details {
-  list-style-type: none;
-  padding-left: 0;
+/* Preview Items */
+.discover__preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.preview__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--body-color);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+body.dark-theme .preview__item {
+  background: var(--body-color);
+}
+
+.preview__item:hover {
+  transform: translateX(8px);
+  background: var(--first-color);
+}
+
+body.dark-theme .preview__item:hover {
+  background: var(--first-color);
+}
+
+.preview__item:hover span,
+.preview__item:hover i {
   color: var(--white-color);
 }
 
-.discover__details li {
+.preview__item i {
+  font-size: 1.25rem;
+  color: var(--first-color);
+  min-width: 24px;
+  transition: color 0.3s ease;
+}
+
+.preview__item span {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Button */
+.discover__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  color: var(--white-color);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px hsla(195, 80%, 50%, 0.4);
+}
+
+body.dark-theme .discover__button {
+  box-shadow: 0 8px 24px hsla(195, 90%, 55%, 0.5);
+}
+
+.discover__button:hover {
+  transform: translateX(8px);
+  box-shadow: 0 12px 32px hsla(195, 80%, 50%, 0.5);
+}
+
+body.dark-theme .discover__button:hover {
+  box-shadow: 0 12px 32px hsla(195, 90%, 55%, 0.6);
+}
+
+.discover__button i {
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.discover__button:hover i {
+  transform: translateX(4px);
+}
+
+/*=============== MODAL STYLES - FIXED HORIZONTAL SCROLL ===============*/
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden; /* FIXED: Hilangkan horizontal scroll */
+}
+
+body.dark-theme .modal {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.modal.active {
   display: flex;
   align-items: center;
-  font-size: var(--small-font-size);
-  margin-bottom: var(--mb-0-5);
+  justify-content: center;
+  opacity: 1;
 }
 
-.discover__details li i {
-  font-size: 1.2rem;
-  margin-right: var(--mb-0-5);
-  color: var(--first-color); /* Warna aksen Anda */
-  min-width: 20px;
+/* Modal Content - FIXED WIDTH & OVERFLOW */
+.modal__content {
+  background: var(--input-color);
+  border-radius: 32px;
+  max-width: 850px;
+  width: calc(100% - 2rem); /* FIXED: Beri margin dari tepi */
+  position: relative;
+  padding: 3rem;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9) translateY(50px);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden; /* FIXED: Hilangkan horizontal scroll */
+  border: 2px solid transparent;
+  box-sizing: border-box; /* FIXED: Pastikan padding dihitung dalam width */
 }
 
-/* Hapus CSS Swiper yang tidak perlu jika tidak dipakai */
-/*
-.swiper-container-3d .swiper-slide-shadow-left,
-.swiper-container-3d .swiper-slide-shadow-right {
-  background-image: none;
+body.dark-theme .modal__content {
+  background: var(--input-color);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  border-color: hsla(195, 90%, 55%, 0.2);
 }
-*/
 
+.modal.active .modal__content {
+  transform: scale(1) translateY(0);
+}
 
-/*=============== EXPERIENCE (RESOURCE HUB) ===============*/
-/* Menghapus semua CSS 'experience' lama */
-/* CSS BARU: Menggantinya dengan Accordion Toolkit */
+/* Modal Header */
+.modal__header {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--body-color);
+}
 
+body.dark-theme .modal__header {
+  border-bottom-color: hsla(195, 90%, 55%, 0.2);
+}
+
+/* Gradient Overlay - FIXED OVERFLOW */
+.modal__gradient {
+  position: absolute;
+  top: -3rem;
+  left: -3rem;
+  right: -3rem;
+  height: 220px;
+  background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  opacity: 0.08;
+  border-radius: 32px 32px 0 0;
+  z-index: -1;
+  max-width: 100%; /* FIXED: Batasi lebar */
+}
+
+body.dark-theme .modal__gradient {
+  opacity: 0.15;
+}
+
+/* Close Button */
+.modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--body-color);
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+body.dark-theme .modal__close {
+  background: var(--body-color);
+  border-color: hsla(195, 90%, 55%, 0.3);
+}
+
+.modal__close:hover {
+  background: #ff4757;
+  border-color: #ff4757;
+  color: var(--white-color);
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* Modal Icon */
+.modal__icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 16px 40px hsla(195, 80%, 50%, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+body.dark-theme .modal__icon {
+  box-shadow: 0 16px 40px hsla(195, 90%, 55%, 0.6);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.modal__icon i {
+  font-size: 2.8rem;
+  color: var(--white-color);
+}
+
+/* Modal Title & Description */
+.modal__title {
+  font-size: 2rem;
+  color: var(--title-color);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.modal__description {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* Modal Details List */
+.modal__details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modal__item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  background: var(--body-color);
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-theme .modal__item {
+  background: var(--body-color);
+}
+
+.modal__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.modal__item:hover::before {
+  transform: scaleY(1);
+}
+
+.modal__item:hover {
+  transform: translateX(12px);
+  background: linear-gradient(90deg, var(--body-color) 0%, var(--input-color) 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .modal__item:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Item Icon */
+.modal__item-icon {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px hsla(195, 80%, 50%, 0.4);
+  transition: transform 0.3s ease;
+}
+
+body.dark-theme .modal__item-icon {
+  box-shadow: 0 8px 20px hsla(195, 90%, 55%, 0.5);
+}
+
+.modal__item:hover .modal__item-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.modal__item-icon i {
+  font-size: 1.75rem;
+  color: var(--white-color);
+}
+
+/* Modal Item Content */
+.modal__item-content {
+  flex: 1;
+  min-width: 0; /* FIXED: Prevent overflow */
+  word-wrap: break-word; /* FIXED: Break long words */
+}
+
+.modal__item-title {
+  font-size: 1.15rem;
+  color: var(--title-color);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: block;
+  line-height: 1.4;
+}
+
+.modal__item-text {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* Custom Scrollbar for Modal */
+.modal__content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal__content::-webkit-scrollbar-track {
+  background: var(--body-color);
+  border-radius: 10px;
+}
+
+.modal__content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  border-radius: 10px;
+}
+
+.modal__content::-webkit-scrollbar-thumb:hover {
+  background: var(--first-color-alt);
+}
+
+/* Entrance Animation for Cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.discover__card {
+  animation: fadeInUp 0.6s ease backwards;
+}
+
+.discover__card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/*=============== RESPONSIVE - SKILL NAVIGATOR ===============*/
+
+/* Extra Small Mobile */
+@media screen and (max-width: 380px) {
+  .discover__card {
+    min-width: 280px;
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+  
+  .modal__content {
+    padding: 2rem 1rem;
+    width: calc(100% - 1rem);
+  }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+  .discover__grid {
+    gap: 1.5rem;
+  }
+  
+  .discover__card {
+    padding: 2rem 1.5rem;
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .discover__icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .discover__icon i {
+    font-size: 2rem;
+  }
+
+  .discover__title {
+    font-size: 1.5rem;
+  }
+
+  .discover__button {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+  }
+
+  .modal__content {
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+    width: calc(100% - 1rem);
+  }
+
+  .modal__icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .modal__icon i {
+    font-size: 2.2rem;
+  }
+
+  .modal__title {
+    font-size: 1.5rem;
+  }
+
+  .modal__description {
+    font-size: 1rem;
+  }
+
+  .modal__item {
+    padding: 1.25rem;
+    gap: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal__item-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    margin: 0 auto;
+  }
+
+  .modal__item-icon i {
+    font-size: 1.5rem;
+  }
+
+  .modal__item-title {
+    font-size: 1rem;
+  }
+
+  .modal__item-text {
+    font-size: 0.875rem;
+  }
+}
+
+/* Medium Mobile - Tablet Small */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .discover__card {
+    padding: 2.5rem 2rem;
+    flex: 1 1 400px;
+    max-width: 100%;
+  }
+
+  .modal__content {
+    padding: 2.5rem 2rem;
+    width: calc(100% - 2rem);
+  }
+
+  .modal__item {
+    padding: 1.5rem;
+  }
+}
+
+/* Tablet - 2 KOLOM MULAI DARI SINI */
+@media screen and (min-width: 768px) {
+  .discover__grid {
+    gap: 2rem;
+  }
+
+  .discover__card {
+    padding: 3rem 2.5rem;
+    flex: 1 1 calc(50% - 1rem); /* FIXED: 2 kolom dengan gap */
+    max-width: calc(50% - 1rem);
+  }
+
+  .modal__content {
+    padding: 3rem 2.5rem;
+    width: calc(100% - 2rem);
+  }
+}
+
+/* Desktop Devices */
+@media screen and (min-width: 1024px) {
+  .discover__grid {
+    gap: 2.5rem;
+    max-width: 1100px;
+  }
+
+  .discover__card {
+    padding: 3.5rem 3rem;
+    flex: 1 1 calc(50% - 1.25rem);
+    max-width: calc(50% - 1.25rem);
+  }
+
+  .modal__content {
+    padding: 3.5rem 3rem;
+    max-width: 900px;
+  }
+
+  .modal__item {
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .modal__item-icon {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+  }
+
+  .modal__item-icon i {
+    font-size: 2rem;
+  }
+}
+
+/* Large Desktop */
+@media screen and (min-width: 1200px) {
+  .discover__grid {
+    max-width: 1100px;
+  }
+}
+
+/*=============== EXPERIENCE (RESOURCE HUB) - IMPROVED ===============*/
 .experience__container {
-  /* Hanya untuk membungkus .toolkit__container */
   display: flex;
   justify-content: center;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 
 .toolkit__container {
-  max-width: 768px; /* Lebar optimal untuk accordion */
+  max-width: 900px;
   width: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
 .toolkit__item {
   background-color: var(--white-color);
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 0.75rem;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+body.dark-theme .toolkit__item {
+  background-color: var(--input-color);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.toolkit__item:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .toolkit__item:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.toolkit__item.open {
+  border-color: var(--first-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+body.dark-theme .toolkit__item.open {
+  border-color: var(--first-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .toolkit__header {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
+  gap: 1.25rem;
+  padding: 1.75rem 2rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.toolkit__header:hover {
+  background-color: var(--body-color);
+}
+
+body.dark-theme .toolkit__header:hover {
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .toolkit__icon {
-  font-size: 1.75rem;
+  font-size: 2rem;
   color: var(--first-color);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.toolkit__item.open .toolkit__icon {
+  transform: scale(1.1);
 }
 
 .toolkit__title {
+  flex: 1;
   font-size: var(--h3-font-size);
-  color: var(--dark-color);
-  font-weight: 600; /* Semi-bold */
+  color: var(--title-color);
+  font-weight: 600;
+  margin: 0;
 }
 
 .toolkit__arrow {
   font-size: 1.5rem;
-  color: var(--dark-color);
+  color: var(--text-color);
   transition: transform 0.3s ease;
-}
-
-.toolkit__content {
-  max-height: 0; /* Awalnya tertutup */
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-}
-
-.toolkit__list {
-  list-style: none;
-  padding: 0 1.5rem;
-  display: grid;
-  gap: 1.25rem;
-}
-
-.toolkit__resource {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px dashed rgba(0,0,0,0.1);
-}
-
-.toolkit__resource:last-child {
-  border-bottom: none;
-  padding-bottom: 0; /* Hapus padding bawah untuk item terakhir */
-}
-
-.resource__title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: var(--mb-0-25);
-  color: var(--dark-color);
-}
-
-.resource__description {
-  font-size: var(--small-font-size);
-  color: var(--dark-color);
-  max-width: 350px; /* Batasi lebar teks deskripsi */
-}
-
-.resource__link {
-  font-size: var(--small-font-size);
-  color: var(--first-color);
-  font-weight: 600;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  white-space: nowrap; /* Mencegah 'Kunjungi' terpisah */
-  transition: opacity 0.3s ease;
-}
-
-.resource__link:hover {
-  opacity: 0.7;
-}
-
-/* Fungsionalitas Buka/Tutup Accordion */
-.toolkit__item.open {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  border-color: var(--first-color-alt);
+  flex-shrink: 0;
 }
 
 .toolkit__item.open .toolkit__arrow {
   transform: rotate(-180deg);
 }
 
-.toolkit__item.open .toolkit__content {
-  max-height: 1000px; /* Atur ke nilai tinggi yang cukup */
-  padding-bottom: 1.5rem;
+.toolkit__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  background-color: var(--body-color);
 }
 
-/*=============== RESPONSIVE (Toolkit) ===============*/
-@media screen and (max-width: 480px) {
+body.dark-theme .toolkit__content {
+  background-color: var(--body-color);
+}
+
+.toolkit__item.open .toolkit__content {
+  max-height: 2000px;
+  padding: 1.5rem 2rem 2rem;
+}
+
+.toolkit__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.toolkit__resource {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.5rem;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+body.dark-theme .toolkit__resource {
+  background-color: var(--input-color);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.toolkit__resource:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-color: var(--first-color);
+}
+
+body.dark-theme .toolkit__resource:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.toolkit__resource:last-child {
+  margin-bottom: 0;
+}
+
+.toolkit__resource > div {
+  min-width: 0;
+}
+
+.resource__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--title-color);
+  margin-bottom: var(--mb-0-5);
+  line-height: 1.3;
+}
+
+.resource__description {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.resource__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 1.25rem;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  align-self: start;
+}
+
+.resource__link:hover {
+  background-color: var(--first-color-alt);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.resource__link i {
+  font-size: 1rem;
+}
+
+
+/*=============== RESPONSIVE - RESOURCE HUB ===============*/
+@media screen and (max-width: 640px) {
   .toolkit__header {
+    padding: 1.5rem 1.25rem;
+    gap: 1rem;
+  }
+  
+  .toolkit__icon {
+    font-size: 1.5rem;
+  }
+  
+  .toolkit__title {
+    font-size: 1rem;
+  }
+  
+  .toolkit__item.open .toolkit__content {
     padding: 1.25rem;
   }
-  .toolkit__title {
-    font-size: 1rem; /* Sedikit lebih kecil di HP */
-  }
+  
   .toolkit__resource {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
   }
+  
   .resource__link {
-    margin-top: var(--mb-0-5);
+    justify-self: start;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .toolkit__container {
+    max-width: 850px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .toolkit__container {
+    max-width: 900px;
   }
 }
 
