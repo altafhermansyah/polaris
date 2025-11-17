@@ -44,7 +44,7 @@
                         <a href="#toolkit" class="nav__link">Toolkit</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#toolkit" class="nav__link">Tentang Kami</a>
+                        <a href="#team" class="nav__link">Tentang Kami</a>
                     </li>
                 </ul>
 
@@ -73,7 +73,7 @@
                     <span class="home__data-subtitle">Rancang Masa Depanmu</span>
                     <h1 class="home__data-title">Toolkit Navigasi di Era<br> Disrupsi.<br></h1>
 
-                    <a href="#about" class="button">Explore</a>
+                    <a href="#disruption" class="button">Explore</a>
                 </div>
 
                 <div class="home__info">
@@ -141,7 +141,7 @@
 
                 <div class="about__transition">
                     <h3 class="about__transition-title">Jangan Takut. Ini Adalah Peluang Terbesarmu.</h3>
-                    <a href="#services" class="button">Lihat Solusinya</a>
+                    <a href="#discover" class="button">Lihat Solusinya</a>
                 </div>
 
             </div>
@@ -483,141 +483,91 @@
             </div>
         </section>
 
-        <!--==================== VIDEO ====================-->
-        <section class="video section">
-            <h2 class="section__title">Video Tour</h2>
+        <!--==================== TEAM SECTION ====================-->
+        <section class="section" id="team">
+            <h2 class="section__title">Meet Our Team</h2>
+            <p class="section__subtitle">
+                Tim kreatif di balik Polaris. Kami adalah sekumpulan individu yang passionate dalam membantu
+                generasi muda menghadapi era disrupsi dengan percaya diri.
+            </p>
 
-            <div class="video__container container">
-                <p class="video__description">Find out more with our video of the most beautiful and
-                    pleasant places for you and your family.
-                </p>
-
-                <div class="video__content">
-                    <video id="video-file">
-                        <source src="assets/video/video.mp4" type="video/mp4">
-                    </video>
-
-                    <button class="button button--flex video__button" id="video-button">
-                        <i class="ri-play-line video__button-icon" id="video-icon"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!--==================== PLACES ====================-->
-        <section class="place section" id="place">
-            <h2 class="section__title">Choose Your Place</h2>
-
-            <div class="place__container container grid">
-                <!--==================== PLACES CARD 1 ====================-->
-                <div class="place__card">
-                    <img src="assets/img/place1.jpg" alt="" class="place__img">
-
-                    <div class="place__content">
-                        <span class="place__rating">
-                            <i class="ri-star-line place__rating-icon"></i>
-                            <span class="place__rating-number">4,8</span>
-                        </span>
-
-                        <div class="place__data">
-                            <h3 class="place__title">Bali</h3>
-                            <span class="place__subtitle">Indonesia</span>
-                            <span class="place__price">$2499</span>
+            <div class="team__container container">
+                <!-- Team Member 1 -->
+                <article class="team__card">
+                    <div class="team__img-container">
+                        <img src="assets/img/Altaf.jpg"
+                            alt="Ahmad Rizki" class="team__img">
+                        <div class="team__overlay"></div>
+                        <span class="team__role-badge">Anggota</span>
+                    </div>
+                    <div class="team__content">
+                        <h3 class="team__name">Altaf Muhammad Hermansyah</h3>
+                        <span class="team__position">Full-Stack Developer</span>
+                        <p class="team__bio">
+                            Passionate tentang teknologi dan edukasi. Percaya bahwa setiap orang bisa berkembang dengan
+                            tools yang tepat.
+                        </p>
+                        <div class="team__social">
+                            <a href="https://github.com/altafhermansyah" class="team__social-link">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/altaf-muhammad-hermansyah-293aa52a4/" class="team__social-link">
+                                <i class="ri-linkedin-box-fill"></i>
+                            </a>
                         </div>
                     </div>
+                </article>
 
-                    <button class="button button--flex place__button">
-                        <i class="ri-arrow-right-line"></i>
-                    </button>
-                </div>
-
-                <!--==================== PLACES CARD 2 ====================-->
-                <div class="place__card">
-                    <img src="assets/img/place2.jpg" alt="" class="place__img">
-
-                    <div class="place__content">
-                        <span class="place__rating">
-                            <i class="ri-star-line place__rating-icon"></i>
-                            <span class="place__rating-number">5,0</span>
-                        </span>
-
-                        <div class="place__data">
-                            <h3 class="place__title">Bora Bora</h3>
-                            <span class="place__subtitle">Polinesia</span>
-                            <span class="place__price">$1599</span>
+                <!-- Team Member 2 -->
+                <article class="team__card">
+                    <div class="team__img-container">
+                        <img src="assets/img/Hikam.jpg"
+                            alt="Siti Nurhaliza" class="team__img">
+                        <div class="team__overlay"></div>
+                        <span class="team__role-badge">Team Leader</span>
+                    </div>
+                    <div class="team__content">
+                        <h3 class="team__name">Muhammad Hikam Badriddujaa</h3>
+                        <span class="team__position">UI/UX Designer</span>
+                        <p class="team__bio">
+                            Menciptakan pengalaman digital yang intuitif dan menarik. Fokus pada human-centered design.
+                        </p>
+                        <div class="team__social">
+                            <a href="https://github.com/hikam-TI" class="team__social-link">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/m-hikam-badriddujaa/" class="team__social-link">
+                                <i class="ri-linkedin-box-fill"></i>
+                            </a>
                         </div>
                     </div>
+                </article>
 
-                    <button class="button button--flex place__button">
-                        <i class="ri-arrow-right-line"></i>
-                    </button>
-                </div>
-
-                <!--==================== PLACES CARD 3 ====================-->
-                <div class="place__card">
-                    <img src="assets/img/place3.jpg" alt="" class="place__img">
-
-                    <div class="place__content">
-                        <span class="place__rating">
-                            <i class="ri-star-line place__rating-icon"></i>
-                            <span class="place__rating-number">4,9</span>
-                        </span>
-
-                        <div class="place__data">
-                            <h3 class="place__title">Hawaii</h3>
-                            <span class="place__subtitle">EE.UU</span>
-                            <span class="place__price">$3499</span>
+                <!-- Team Member 3 -->
+                <article class="team__card">
+                    <div class="team__img-container">
+                        <img src="assets/img/Fahruz.jpg"
+                            alt="Budi Santoso" class="team__img">
+                        <div class="team__overlay"></div>
+                        <span class="team__role-badge">Anggota</span>
+                    </div>
+                    <div class="team__content">
+                        <h3 class="team__name">Shobiburrahmat Al Fahruz Zabad</h3>
+                        <span class="team__position">Content Strategist</span>
+                        <p class="team__bio">
+                            Ahli dalam storytelling dan content creation. Mengubah ide kompleks menjadi konten yang
+                            engaging.
+                        </p>
+                        <div class="team__social">
+                            <a href="https://github.com/liventAndDeadnt" class="team__social-link">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                            <a href="www.linkedin.com/in/shobiburrahmat-al-fahruz-zabad-15830331b" class="team__social-link">
+                                <i class="ri-linkedin-box-fill"></i>
+                            </a>
                         </div>
                     </div>
-
-                    <button class="button button--flex place__button">
-                        <i class="ri-arrow-right-line"></i>
-                    </button>
-                </div>
-
-                <!--==================== PLACES CARD 4 ====================-->
-                <div class="place__card">
-                    <img src="assets/img/place4.jpg" alt="" class="place__img">
-
-                    <div class="place__content">
-                        <span class="place__rating">
-                            <i class="ri-star-line place__rating-icon"></i>
-                            <span class="place__rating-number">4,8</span>
-                        </span>
-
-                        <div class="place__data">
-                            <h3 class="place__title">Whitehaven</h3>
-                            <span class="place__subtitle">Australia</span>
-                            <span class="place__price">$2499</span>
-                        </div>
-                    </div>
-
-                    <button class="button button--flex place__button">
-                        <i class="ri-arrow-right-line"></i>
-                    </button>
-                </div>
-
-                <!--==================== PLACES CARD 5 ====================-->
-                <div class="place__card">
-                    <img src="assets/img/place5.jpg" alt="" class="place__img">
-
-                    <div class="place__content">
-                        <span class="place__rating">
-                            <i class="ri-star-line place__rating-icon"></i>
-                            <span class="place__rating-number">4,8</span>
-                        </span>
-
-                        <div class="place__data">
-                            <h3 class="place__title">Hvar</h3>
-                            <span class="place__subtitle">Croacia</span>
-                            <span class="place__price">$1999</span>
-                        </div>
-                    </div>
-
-                    <button class="button button--flex place__button">
-                        <i class="ri-arrow-right-line"></i>
-                    </button>
-                </div>
+                </article>
             </div>
         </section>
 
