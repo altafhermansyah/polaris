@@ -225,7 +225,7 @@ input {
   background-color: transparent;
 }
 
-/*=============== NAV ===============*/
+/*=============== NAV (SUDAH DIPERBAIKI) ===============*/
 .nav {
   height: var(--header-height);
   display: flex;
@@ -233,16 +233,25 @@ input {
   align-items: center;
 }
 
-.nav__logo,
+.nav__logo {
+  color: white;
+  font-weight: var(--font-semi-bold);
+
+  font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav__logo-img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Tombol Toggle */
 .nav__toggle {
   color: var(--white-color);
-}
-
-.nav__logo {
-  font-weight: var(--font-semi-bold);
-}
-
-.nav__toggle {
+  /* Warna awal tombol menu */
   font-size: 1.2rem;
   cursor: pointer;
 }
@@ -301,6 +310,8 @@ input {
   box-shadow: 0 0 4px rgba(14, 55, 63, 0.15);
 }
 
+/* Saat scroll, logo (cyan) dan toggle (putih) 
+   kedua-duanya berubah menjadi warna --title-color */
 .scroll-header .nav__logo,
 .scroll-header .nav__toggle {
   color: var(--title-color);
