@@ -8,13 +8,15 @@
   /*========== Colors ==========*/
   /* Change favorite color to match images */
 
-/* HSL color mode - LIGHT MODE BARU (Sejuk & Bersih) */
+  /* HSL color mode - LIGHT MODE BARU (Sejuk & Bersih) */
 
   --hue-color: 215;
 
   --first-color: hsl(195, 80%, 50%);
-  --first-color-second: hsl(195, 80%, 50%); /* Samakan saja */
-  --first-color-alt: hsl(195, 80%, 45%); /* Untuk hover */
+  --first-color-second: hsl(195, 80%, 50%);
+  /* Samakan saja */
+  --first-color-alt: hsl(195, 80%, 45%);
+  /* Untuk hover */
 
   --title-color: hsl(var(--hue-color), 40%, 25%);
   --text-color: hsl(var(--hue-color), 25%, 35%);
@@ -84,7 +86,8 @@ body.dark-theme {
   /* AKSEN UTAMA: Diambil dari warna cincin planet (195) */
   /* Ini adalah variabel baru/yang diedit agar warnanya menyala */
   --first-color: hsl(195, 90%, 55%);
-  --first-color-alt: hsl(195, 90%, 48%); /* Untuk hover */
+  --first-color-alt: hsl(195, 90%, 48%);
+  /* Untuk hover */
 
   /* Warna sekunder (bisa jadi biru gelap atau cyan gelap) */
   --first-color-second: hsl(var(--hue-color), 30%, 15%);
@@ -96,11 +99,13 @@ body.dark-theme {
   /* BACKGROUND: Diambil dari area langit/bayangan tergelap */
   --body-color: hsl(var(--hue-color), 40%, 8%);
   --input-color: hsl(var(--hue-color), 30%, 12%);
-  
+
   /* Scrollbar: Disesuaikan agar kontras */
   --scroll-bar-color: hsl(var(--hue-color), 12%, 40%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 60%);
-}s
+}
+
+s
 
 /*========== Button Dark/Light ==========*/
 .nav__dark {
@@ -112,7 +117,8 @@ body.dark-theme {
   bottom: 4rem;
 }
 
-.change-theme, .change-theme-name {
+.change-theme,
+.change-theme-name {
   color: var(--text-color);
 }
 
@@ -144,7 +150,9 @@ body {
   color: var(--text-color);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
   font-family: var(--title-font);
@@ -225,7 +233,8 @@ input {
   align-items: center;
 }
 
-.nav__logo, .nav__toggle {
+.nav__logo,
+.nav__toggle {
   color: var(--white-color);
 }
 
@@ -323,6 +332,7 @@ input {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -341,6 +351,7 @@ input {
   /* Opsional: Efek zoom perlahan (Ken Burns) */
   /* animation: kenburns 20s ease-in-out infinite alternate; */
 }
+
 /* @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } } */
 
 
@@ -351,9 +362,9 @@ input {
   row-gap: 3rem;
 }
 
-.home__data-subtitle, 
-.home__data-title, 
-.home__social-link, 
+.home__data-subtitle,
+.home__data-title,
+.home__social-link,
 .home__info {
   color: var(--white-color);
 }
@@ -364,7 +375,8 @@ input {
 .home__social,
 .button {
   animation: fadeInUp 0.8s ease-out forwards;
-  opacity: 0; /* Mulai dari transparan */
+  opacity: 0;
+  /* Mulai dari transparan */
 }
 
 .home__data-subtitle {
@@ -373,7 +385,7 @@ input {
   margin-bottom: var(--mb-0-75);
   animation-delay: 0.2s;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
- /* Muncul kedua */
+  /* Muncul kedua */
 }
 
 .home__data-title {
@@ -382,44 +394,57 @@ input {
   margin-bottom: var(--mb-2-5);
   animation-delay: 0.1s;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
- /* Muncul pertama */
+  /* Muncul pertama */
 }
 
 /* 3. Ubah .home__social menjadi horizontal */
 .home__social {
   display: flex;
-  flex-direction: row; /* BARU: Jadi horizontal */
-  column-gap: 2rem;     /* BARU: Jarak antar ikon */
-  margin-top: 2rem;     /* BARU: Jarak dari tombol */
-  animation-delay: 0.6s;  /* Muncul terakhir */
+  flex-direction: row;
+  /* BARU: Jadi horizontal */
+  column-gap: 2rem;
+  /* BARU: Jarak antar ikon */
+  margin-top: 2rem;
+  /* BARU: Jarak dari tombol */
+  animation-delay: 0.6s;
+  /* Muncul terakhir */
 }
 
 .home__social-link {
   font-size: 1.3rem;
   width: max-content;
-  transition: transform 0.3s ease, color 0.3s ease; /* BARU: Transisi halus */
+  transition: transform 0.3s ease, color 0.3s ease;
+  /* BARU: Transisi halus */
 }
 
 .home__social-link:hover {
-  transform: translateY(-3px); /* BARU: Efek hover naik */
-  color: var(--first-color-alt); /* BARU: Samakan warna hover dgn tombol */
+  transform: translateY(-3px);
+  /* BARU: Efek hover naik */
+  color: var(--first-color-alt);
+  /* BARU: Samakan warna hover dgn tombol */
 }
 
 /* 4. Ubah .home__info menjadi "Glassmorphism" */
 .home__info {
   /* Hapus background-color solid */
-  background-color: rgba(255, 255, 255, 0.1); /* BARU: Latar transparan */
-  backdrop-filter: blur(10px); /* BARU: Efek blur kaca */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* BARU: Garis tepi tipis */
-  border-radius: 12px; /* BARU: Sudut lebih halus */
-  
+  background-color: rgba(255, 255, 255, 0.1);
+  /* BARU: Latar transparan */
+  backdrop-filter: blur(10px);
+  /* BARU: Efek blur kaca */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* BARU: Garis tepi tipis */
+  border-radius: 12px;
+  /* BARU: Sudut lebih halus */
+
   display: flex;
   padding: 1.5rem 1rem;
   align-items: center;
   column-gap: .5rem;
   position: absolute;
-  right: 1.5rem; /* BARU: Beri jarak dari tepi */
-  bottom: 1.5rem; /* BARU: Beri jarak dari tepi */
+  right: 1.5rem;
+  /* BARU: Beri jarak dari tepi */
+  bottom: 1.5rem;
+  /* BARU: Beri jarak dari tepi */
   width: 228px;
 }
 
@@ -437,7 +462,8 @@ input {
 
 .home__info-overlay {
   overflow: var(--img-hidden);
-  border-radius: 6px; /* BARU: Samakan sudut gambar dgn box */
+  border-radius: 6px;
+  /* BARU: Samakan sudut gambar dgn box */
 }
 
 .home__info-img {
@@ -456,19 +482,24 @@ input {
   color: var(--white-color);
   padding: 1rem 2rem;
   font-weight: var(--font-semi-bold);
-  border-radius: 6px; /* BARU: Sudut lebih halus */
-  transition: all .3s ease-out; /* BARU: Transisi lebih smooth */
-  
+  border-radius: 6px;
+  /* BARU: Sudut lebih halus */
+  transition: all .3s ease-out;
+  /* BARU: Transisi lebih smooth */
+
   /* Terapkan animasi masuk */
   animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
-  animation-delay: 0.4s; /* Muncul setelah judul */
+  animation-delay: 0.4s;
+  /* Muncul setelah judul */
 }
 
 .button:hover {
   background-color: var(--first-color-alt);
-  transform: translateY(-3px); /* BARU: Efek hover naik */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* BARU: Bayangan halus */
+  transform: translateY(-3px);
+  /* BARU: Efek hover naik */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* BARU: Bayangan halus */
 }
 
 .button--flex {
@@ -484,8 +515,8 @@ input {
 
 .button--link:hover {
   background: none;
-  transform: none; 
-  box-shadow: none; 
+  transform: none;
+  box-shadow: none;
 }
 
 /*=============== ABOUT ===============*/
@@ -514,13 +545,14 @@ input {
   margin-right: auto;
   font-style: italic;
   font-weight: 700;
-  color: var(--first-color); 
+  color: var(--first-color);
   margin-bottom: 1rem;
 }
 
 .about__description {
   color: var(--text-color);
-  max-width: 600px; /* Batasi lebar paragraf */
+  max-width: 600px;
+  /* Batasi lebar paragraf */
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
@@ -530,7 +562,8 @@ input {
 .about__description-lead {
   /* Menggantikan <b> dengan CSS */
   font-weight: var(--font-semi-bold);
-  color: var(--title-color); /* Buat lebih menonjol */
+  color: var(--title-color);
+  /* Buat lebih menonjol */
   font-size: 1.1rem;
 }
 
@@ -543,7 +576,8 @@ input {
     - 3 kolom di Desktop
   */
   display: grid;
-  grid-template-columns: 1fr; /* Default 1 kolom */
+  grid-template-columns: 1fr;
+  /* Default 1 kolom */
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -553,24 +587,30 @@ input {
     sebagai warna latar kartu.
   */
   background-color: var(--input-color);
-  border: 1px solid var(--first-color-alt); /* Garis tepi cyan */
+  border: 1px solid var(--first-color-alt);
+  /* Garis tepi cyan */
   padding: 2rem 1.5rem;
-  border-radius: 12px; /* Samakan dengan 'glassmorphism' */
+  border-radius: 12px;
+  /* Samakan dengan 'glassmorphism' */
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about__card:hover {
-  transform: translateY(-5px); /* Efek 'terangkat' saat di-hover */
+  transform: translateY(-5px);
+  /* Efek 'terangkat' saat di-hover */
   /* Efek 'glow' sci-fi dengan warna aksen */
-  box-shadow: 0 4px 20px hsla(var(--first-color), 0.3); 
+  box-shadow: 0 4px 20px hsla(var(--first-color), 0.3);
 }
 
 .about__card-icon {
-  font-size: 2.5rem; /* Ukuran ikon */
-  color: var(--first-color); /* Warna ikon (cyan) */
+  font-size: 2.5rem;
+  /* Ukuran ikon */
+  color: var(--first-color);
+  /* Warna ikon (cyan) */
   margin-bottom: 1rem;
-  display: block; /* Agar margin berfungsi */
+  display: block;
+  /* Agar margin berfungsi */
 }
 
 .about__card-title {
@@ -603,7 +643,8 @@ input {
  */
 @media screen and (min-width: 992px) {
   .about__cards {
-    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 kolom */
   }
 
   .about__data {
@@ -611,9 +652,11 @@ input {
   }
 }
 
-/*=============== DISCOVER (SKILL NAVIGATOR) - FIXED VERSION ===============*/
+/* ===========================================
+   CSS BARU UNTUK DISCOVER & MODAL (TEMA CYBERPUNK)
+   =========================================== */
 
-/* Section Subtitle */
+/* --- Judul & Subjudul Section --- */
 .section__subtitle {
   text-align: center;
   max-width: 700px;
@@ -627,110 +670,104 @@ input {
   margin-bottom: var(--mb-2-5);
 }
 
-/* Main Container - FIXED OVERFLOW */
 .discover__container {
-  max-width: 100%;
+  max-width: 1100px;
+  /* Memberi ruang agar tidak mepet */
+  margin: 0 auto;
   padding: 0 1rem;
-  overflow: visible; /* Pastikan tidak ada hidden overflow */
+  overflow: visible;
 }
 
 .discover__grid {
   display: flex;
   flex-wrap: wrap;
+  /* Agar bisa wrap di mobile */
   justify-content: center;
   gap: 2rem;
-  max-width: 1100px; /* Dikurangi untuk memberi ruang */
-  margin: 0 auto;
 }
 
-/* Card Styling - LEBAR OPTIMAL AGAR BERJEJERAN */
+/* --- PERUBAHAN BESAR PADA KARTU --- */
 .discover__card {
   background: var(--input-color);
-  border-radius: 24px;
-  padding: 3rem 2.5rem;
+  /* Latar kartu */
+  border-radius: 12px;
+  /* Samakan dengan kartu .about */
+  padding: 2.5rem 2rem;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   cursor: pointer;
-  border: 2px solid transparent;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  
-  /* KUNCI: Kontrol lebar optimal agar 2 card bisa sejajar */
-  flex: 1 1 450px; /* Grow, shrink, basis 450px */
-  min-width: 300px; /* Minimum width untuk mobile */
-  max-width: 500px; /* Maximum width per card */
+
+  /* Ganti border gradien dengan border solid halus */
+  border: 1px solid hsla(195, 90%, 55%, 0.3);
+  /* Border cyan transparan */
+
+  /* Kontrol lebar kartu */
+  flex: 1 1 420px;
+  min-width: 300px;
+  max-width: 480px;
+
+  /* Animasi masuk */
+  animation: fadeInUp 0.6s ease backwards;
 }
 
-body.dark-theme .discover__card {
-  background: var(--input-color);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+.discover__card:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
-/* Gradient Top Border Effect */
+/* Hilangkan ::before gradien yang lama */
 .discover__card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, var(--first-color) 0%, var(--first-color-alt) 100%);
-  transform: translateY(-100%);
-  transition: transform 0.4s ease;
+  display: none;
 }
 
-.discover__card:hover::before {
-  transform: translateY(0);
-}
-
+/* Ganti efek hover 'bouncy' dengan 'glow' sci-fi */
 .discover__card:hover {
-  transform: translateY(-12px) scale(1.02);
+  transform: translateY(-8px);
   border-color: var(--first-color);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  /* Border jadi solid saat hover */
+
+  /* Efek glow seperti .about__card */
+  box-shadow: 0 8px 32px hsla(195, 90%, 55%, 0.3);
 }
 
-body.dark-theme .discover__card:hover {
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
-}
-
-/* Icon Container */
+/* --- PERUBAHAN PADA IKON KARTU --- */
 .discover__icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  /* Lebih kotak */
+
+  /* Ganti background gradien cerah dengan border */
+  background: var(--body-color);
+  border: 2px solid var(--first-color);
+
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  box-shadow: 0 12px 32px hsla(195, 80%, 50%, 0.4);
+
+  /* Ganti shadow gradien dengan shadow glow */
+  box-shadow: 0 0 20px hsla(195, 90%, 55%, 0.4);
   transition: all 0.3s ease;
 }
 
-body.dark-theme .discover__icon {
-  box-shadow: 0 12px 32px hsla(195, 90%, 55%, 0.5);
-}
-
 .discover__card:hover .discover__icon {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.05);
+  box-shadow: 0 0 30px hsla(195, 90%, 55%, 0.6);
 }
 
 .discover__icon i {
-  font-size: 2.5rem;
-  color: var(--white-color);
+  font-size: 2.2rem;
+  color: var(--first-color);
+  /* Ikon jadi warna cyan */
 }
 
-/* Card Content */
-.discover__data {
-  position: relative;
-}
-
+/* Konten Kartu (Judul, Deskripsi) */
 .discover__title {
   font-size: var(--h2-font-size);
   color: var(--title-color);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   font-weight: 700;
-  line-height: 1.3;
 }
 
 .discover__description {
@@ -738,15 +775,15 @@ body.dark-theme .discover__icon {
   font-size: var(--normal-font-size);
   margin-bottom: 2rem;
   line-height: 1.6;
-  opacity: 0.9;
 }
 
-/* Preview Items */
+/* --- PERUBAHAN PADA PREVIEW ITEM --- */
 .discover__preview {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  /* Beri jarak ke tombol */
 }
 
 .preview__item {
@@ -755,32 +792,35 @@ body.dark-theme .discover__icon {
   gap: 0.75rem;
   padding: 0.75rem 1rem;
   background: var(--body-color);
-  border-radius: 12px;
+  /* Latar lebih gelap */
+  border-radius: 8px;
+  /* Lebih kotak */
+  border: 1px solid transparent;
   transition: all 0.3s ease;
 }
 
-body.dark-theme .preview__item {
-  background: var(--body-color);
-}
-
+/* Ganti hover background full-color */
 .preview__item:hover {
-  transform: translateX(8px);
-  background: var(--first-color);
+  transform: translateX(5px);
+  border-color: hsla(195, 90%, 55%, 0.4);
+  background: var(--input-color);
+  /* Latar jadi seperti kartu */
 }
 
-body.dark-theme .preview__item:hover {
-  background: var(--first-color);
+.preview__item:hover span {
+  color: var(--first-color);
+  /* Teks jadi cyan */
 }
 
-.preview__item:hover span,
 .preview__item:hover i {
-  color: var(--white-color);
+  color: var(--first-color-alt);
+  /* Ikon jadi cyan */
 }
 
 .preview__item i {
   font-size: 1.25rem;
-  color: var(--first-color);
-  min-width: 24px;
+  color: var(--text-color-light);
+  /* Ikon jadi abu-abu */
   transition: color 0.3s ease;
 }
 
@@ -791,34 +831,32 @@ body.dark-theme .preview__item:hover {
   transition: color 0.3s ease;
 }
 
-/* Button */
+/* --- PERUBAHAN PADA TOMBOL (SANGAT PENTING) --- */
 .discover__button {
+  /* Hapus style lama, samakan dengan .button */
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+
+  /* Samakan dengan style .button utama */
+  background-color: var(--first-color);
   color: var(--white-color);
   padding: 1rem 2rem;
-  border-radius: 50px;
+  font-weight: var(--font-semi-bold);
+  border-radius: 6px;
+  /* SAMAKAN! */
   border: none;
-  font-size: 1rem;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 24px hsla(195, 80%, 50%, 0.4);
-}
 
-body.dark-theme .discover__button {
-  box-shadow: 0 8px 24px hsla(195, 90%, 55%, 0.5);
+  font-size: 1rem;
+  transition: all .3s ease-out;
 }
 
 .discover__button:hover {
-  transform: translateX(8px);
-  box-shadow: 0 12px 32px hsla(195, 80%, 50%, 0.5);
-}
-
-body.dark-theme .discover__button:hover {
-  box-shadow: 0 12px 32px hsla(195, 90%, 55%, 0.6);
+  /* Samakan hover .button utama */
+  background-color: var(--first-color-alt);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px hsla(195, 90%, 55%, 0.2);
 }
 
 .discover__button i {
@@ -830,7 +868,11 @@ body.dark-theme .discover__button:hover {
   transform: translateX(4px);
 }
 
-/*=============== MODAL STYLES - FIXED HORIZONTAL SCROLL ===============*/
+
+/* ===========================================
+   CSS BARU UNTUK MODAL (TEMA CYBERPUNK)
+   =========================================== */
+
 .modal {
   display: none;
   position: fixed;
@@ -845,11 +887,13 @@ body.dark-theme .discover__button:hover {
   transition: opacity 0.3s ease;
   padding: 1rem;
   overflow-y: auto;
-  overflow-x: hidden; /* FIXED: Hilangkan horizontal scroll */
+  overflow-x: hidden;
+  /* Tetap pertahankan */
 }
 
 body.dark-theme .modal {
-  background: rgba(0, 0, 0, 0.85);
+  background: hsla(var(--hue-color), 40%, 8%, 0.8);
+  /* Latar body + blur */
 }
 
 .modal.active {
@@ -859,142 +903,126 @@ body.dark-theme .modal {
   opacity: 1;
 }
 
-/* Modal Content - FIXED WIDTH & OVERFLOW */
+/* --- PERUBAHAN PADA KONTEN MODAL --- */
 .modal__content {
   background: var(--input-color);
-  border-radius: 32px;
+  /* Warna panel */
+  border-radius: 16px;
+  /* Kurangi radius */
   max-width: 850px;
-  width: calc(100% - 2rem); /* FIXED: Beri margin dari tepi */
+  width: calc(100% - 2rem);
   position: relative;
-  padding: 3rem;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
-  transform: scale(0.9) translateY(50px);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 2.5rem;
+  /* Kurangi padding sedikit */
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   max-height: 90vh;
   overflow-y: auto;
-  overflow-x: hidden; /* FIXED: Hilangkan horizontal scroll */
-  border: 2px solid transparent;
-  box-sizing: border-box; /* FIXED: Pastikan padding dihitung dalam width */
-}
-
-body.dark-theme .modal__content {
-  background: var(--input-color);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
-  border-color: hsla(195, 90%, 55%, 0.2);
+  overflow-x: hidden;
+  border: 1px solid hsla(195, 90%, 55%, 0.3);
+  /* Border cyan */
+  box-sizing: border-box;
 }
 
 .modal.active .modal__content {
   transform: scale(1) translateY(0);
 }
 
-/* Modal Header */
 .modal__header {
   position: relative;
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 2px solid var(--body-color);
+  border-bottom: 1px solid hsla(195, 90%, 55%, 0.2);
+  /* Garis cyan */
 }
 
-body.dark-theme .modal__header {
-  border-bottom-color: hsla(195, 90%, 55%, 0.2);
-}
-
-/* Gradient Overlay - FIXED OVERFLOW */
+/* HILANGKAN GRADIENT 'LEMBUT' */
 .modal__gradient {
-  position: absolute;
-  top: -3rem;
-  left: -3rem;
-  right: -3rem;
-  height: 220px;
-  background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
-  opacity: 0.08;
-  border-radius: 32px 32px 0 0;
-  z-index: -1;
-  max-width: 100%; /* FIXED: Batasi lebar */
+  display: none;
 }
 
-body.dark-theme .modal__gradient {
-  opacity: 0.15;
-}
-
-/* Close Button */
+/* Tombol Close */
 .modal__close {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  top: 1rem;
+  /* Pindahkan agak ke dalam */
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  /* Lebih kotak */
   background: var(--body-color);
-  border: 2px solid transparent;
+  border: 1px solid hsla(195, 90%, 55%, 0.3);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   color: var(--text-color);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   z-index: 10;
 }
 
-body.dark-theme .modal__close {
-  background: var(--body-color);
-  border-color: hsla(195, 90%, 55%, 0.3);
-}
-
 .modal__close:hover {
-  background: #ff4757;
-  border-color: #ff4757;
+  background: var(--first-color);
+  border-color: var(--first-color-alt);
   color: var(--white-color);
-  transform: rotate(90deg) scale(1.1);
+  transform: rotate(90deg);
 }
 
-/* Modal Icon */
+/* --- PERUBAHAN PADA IKON MODAL --- */
 .modal__icon {
-  width: 90px;
-  height: 90px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  /* Samakan dengan ikon kartu */
+  background: var(--body-color);
+  border: 2px solid var(--first-color);
+  box-shadow: 0 0 20px hsla(195, 90%, 55%, 0.4);
+
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  box-shadow: 0 16px 40px hsla(195, 80%, 50%, 0.5);
   animation: float 3s ease-in-out infinite;
 }
 
-body.dark-theme .modal__icon {
-  box-shadow: 0 16px 40px hsla(195, 90%, 55%, 0.6);
-}
-
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .modal__icon i {
-  font-size: 2.8rem;
-  color: var(--white-color);
+  font-size: 2.2rem;
+  color: var(--first-color);
+  /* Ikon jadi cyan */
 }
 
-/* Modal Title & Description */
+/* Judul & Deskripsi Modal */
 .modal__title {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  /* Sedikit lebih kecil */
   color: var(--title-color);
   margin-bottom: 0.75rem;
-  font-weight: 700;
-  line-height: 1.3;
 }
 
 .modal__description {
   color: var(--text-color);
-  font-size: 1.1rem;
-  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  /* Kurangi margin */
   line-height: 1.7;
-  opacity: 0.9;
 }
 
-/* Modal Details List */
+/* --- PERUBAHAN PADA LIST ITEM MODAL --- */
 .modal__details {
   list-style: none;
   display: flex;
@@ -1005,61 +1033,42 @@ body.dark-theme .modal__icon {
 .modal__item {
   display: flex;
   gap: 1.5rem;
-  padding: 1.75rem;
+  padding: 1.5rem;
   background: var(--body-color);
-  border-radius: 18px;
+  /* Latar lebih gelap */
+  border-radius: 12px;
   transition: all 0.3s ease;
-  border-left: 4px solid transparent;
+  border-left: 4px solid var(--first-color-alt);
+  /* Border kiri */
   position: relative;
-  overflow: hidden;
 }
 
-body.dark-theme .modal__item {
-  background: var(--body-color);
-}
-
+/* Hilangkan ::before yang lama */
 .modal__item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(180deg, var(--first-color) 0%, var(--first-color-alt) 100%);
-  transform: scaleY(0);
-  transition: transform 0.3s ease;
-}
-
-.modal__item:hover::before {
-  transform: scaleY(1);
+  display: none;
 }
 
 .modal__item:hover {
-  transform: translateX(12px);
-  background: linear-gradient(90deg, var(--body-color) 0%, var(--input-color) 100%);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateX(8px);
+  background: var(--input-color);
+  /* Latar jadi seperti modal */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-body.dark-theme .modal__item:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-/* Modal Item Icon */
+/* Ikon Item Modal */
 .modal__item-icon {
-  width: 56px;
-  height: 56px;
-  min-width: 56px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  border-radius: 10px;
+  background: var(--first-color);
+  /* Ubah jadi solid */
+
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px hsla(195, 80%, 50%, 0.4);
+  box-shadow: 0 8px 20px hsla(195, 80%, 50%, 0.3);
   transition: transform 0.3s ease;
-}
-
-body.dark-theme .modal__item-icon {
-  box-shadow: 0 8px 20px hsla(195, 90%, 55%, 0.5);
 }
 
 .modal__item:hover .modal__item-icon {
@@ -1067,36 +1076,34 @@ body.dark-theme .modal__item-icon {
 }
 
 .modal__item-icon i {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   color: var(--white-color);
+  /* Ikon jadi putih */
 }
 
-/* Modal Item Content */
+/* Konten Item Modal */
 .modal__item-content {
   flex: 1;
-  min-width: 0; /* FIXED: Prevent overflow */
-  word-wrap: break-word; /* FIXED: Break long words */
+  min-width: 0;
+  word-wrap: break-word;
 }
 
 .modal__item-title {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--title-color);
   font-weight: 700;
   margin-bottom: 0.5rem;
-  display: block;
-  line-height: 1.4;
 }
 
 .modal__item-text {
   color: var(--text-color);
   font-size: 0.95rem;
   line-height: 1.7;
-  opacity: 0.9;
 }
 
-/* Custom Scrollbar for Modal */
+/* Scrollbar Modal (Sudah bagus, sesuaikan warna) */
 .modal__content::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 .modal__content::-webkit-scrollbar-track {
@@ -1105,32 +1112,12 @@ body.dark-theme .modal__item-icon {
 }
 
 .modal__content::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+  background: var(--first-color);
   border-radius: 10px;
 }
 
 .modal__content::-webkit-scrollbar-thumb:hover {
   background: var(--first-color-alt);
-}
-
-/* Entrance Animation for Cards */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.discover__card {
-  animation: fadeInUp 0.6s ease backwards;
-}
-
-.discover__card:nth-child(2) {
-  animation-delay: 0.2s;
 }
 
 /*=============== RESPONSIVE - SKILL NAVIGATOR ===============*/
@@ -1142,7 +1129,7 @@ body.dark-theme .modal__item-icon {
     padding: 2rem 1.5rem;
     max-width: 100%;
   }
-  
+
   .modal__content {
     padding: 2rem 1rem;
     width: calc(100% - 1rem);
@@ -1154,7 +1141,7 @@ body.dark-theme .modal__item-icon {
   .discover__grid {
     gap: 1.5rem;
   }
-  
+
   .discover__card {
     padding: 2rem 1.5rem;
     flex: 1 1 100%;
@@ -1255,7 +1242,8 @@ body.dark-theme .modal__item-icon {
 
   .discover__card {
     padding: 3rem 2.5rem;
-    flex: 1 1 calc(50% - 1rem); /* FIXED: 2 kolom dengan gap */
+    flex: 1 1 calc(50% - 1rem);
+    /* FIXED: 2 kolom dengan gap */
     max-width: calc(50% - 1rem);
   }
 
@@ -1457,7 +1445,7 @@ body.dark-theme .toolkit__resource:hover {
   margin-bottom: 0;
 }
 
-.toolkit__resource > div {
+.toolkit__resource>div {
   min-width: 0;
 }
 
@@ -1510,25 +1498,25 @@ body.dark-theme .toolkit__resource:hover {
     padding: 1.5rem 1.25rem;
     gap: 1rem;
   }
-  
+
   .toolkit__icon {
     font-size: 1.5rem;
   }
-  
+
   .toolkit__title {
     font-size: 1rem;
   }
-  
+
   .toolkit__item.open .toolkit__content {
     padding: 1.25rem;
   }
-  
+
   .toolkit__resource {
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1.25rem;
   }
-  
+
   .resource__link {
     justify-self: start;
     width: 100%;
@@ -1574,7 +1562,8 @@ body.dark-theme .toolkit__resource:hover {
 }
 
 /*=============== PLACES ===============*/
-.place__card, .place__img {
+.place__card,
+.place__img {
   height: 230px;
 }
 
@@ -1596,7 +1585,8 @@ body.dark-theme .toolkit__resource:hover {
   transition: var(--img-transition);
 }
 
-.place__content, .place__title {
+.place__content,
+.place__title {
   color: var(--white-color);
 }
 
@@ -1627,7 +1617,8 @@ body.dark-theme .toolkit__resource:hover {
   font-size: var(--small-font-size);
 }
 
-.place__subtitle, .place__price {
+.place__subtitle,
+.place__price {
   display: block;
 }
 
@@ -1648,122 +1639,98 @@ body.dark-theme .toolkit__resource:hover {
   padding: .75rem 1rem;
 }
 
-/*=============== SUBSCRIBE ===============*/
-.subscribe__bg {
-  background-color: var(--first-color-second);
-  padding: 2.5rem 0;
+.footer {
+  padding-top: 4rem;
 }
 
-.subscribe__title, 
-.subscribe__description {
-  color: var(--white-color);
-}
-
-.subscribe__description {
-  text-align: center;
-  margin-bottom: var(--mb-2-5);
-}
-
-.subscribe__form {
-  background-color: var(--input-color);
-  padding: .5rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.subscribe__input {
-  width: 70%;
-  padding-right: .5rem;
-  background-color: var(--input-color);
-  color: var(--text-color);
-}
-
-.subscribe__input::placeholder {
-  color: var(--text-color);
-}
-
-/*=============== SPONSORS ===============*/
-.sponsor__container {
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  justify-items: center;
-  row-gap: 3.5rem;
-}
-
-.sponsor__content:hover .sponsor__img {
-  filter: invert(0.5);
-}
-
-.sponsor__img {
-  width: 90px;
-  filter: invert(0.7);
-  transition: var(--img-transition);
-}
-
-/*=============== FOOTER ===============*/
 .footer__container {
-  row-gap: 5rem;
+  row-gap: 3rem;
+  /* Garis pemisah 'sci-fi' di atas footer */
+  border-top: 1px solid hsla(195, 90%, 55%, 0.3);
+  padding-top: 3rem;
 }
 
+/* === INI PERUBAHAN UTAMA ANDA === */
 .footer__content {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  row-gap: 2rem;
+  /* Mengganti 'display: grid' dengan 'display: flex' */
+  display: flex;
+  flex-wrap: wrap;
+  /* Agar responsive di layar kecil */
+  justify-content: space-around;
+  /* PERMINTAAN ANDA */
+  gap: 2rem;
+  /* Jarak jika 'wrap' terjadi di layar kecil */
 }
 
-.footer__title, 
-.footer__subtitle {
+/* Kolom 1: Logo & Deskripsi */
+.footer__logo {
   font-size: var(--h3-font-size);
+  color: var(--first-color);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: var(--mb-1);
+  display: inline-flex;
+  align-items: center;
 }
 
-.footer__title {
-  margin-bottom: var(--mb-0-5);
+/* REKOMENDASI:
+  Hapus 'style="width: 10%;"' dari <img> Anda
+  dan ganti dengan class="footer__logo-img"
+*/
+.footer__logo-img {
+  width: 32px;
+  /* Ukuran yang jauh lebih pas */
+  height: 32px;
+  margin-right: 0.5rem;
 }
 
 .footer__description {
-  margin-bottom: var(--mb-2);
+  color: var(--text-color-light);
+  font-size: var(--small-font-size);
+  line-height: 1.6;
+  max-width: 300px;
+  /* Batasi lebar kolom ini */
 }
 
-.footer__social {
-  font-size: 1.25rem;
+/* Kolom 2: Judul & Link */
+.footer__title {
+  font-size: var(--h3-font-size);
   color: var(--title-color);
-  margin-right: var(--mb-1-25);
+  margin-bottom: var(--mb-1-5);
 }
 
-.footer__subtitle {
-  margin-bottom: var(--mb-1);
-}
-
-.footer__item {
-  margin-bottom: var(--mb-0-75);
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .footer__link {
   color: var(--text-color);
+  font-size: var(--normal-font-size);
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
 }
 
 .footer__link:hover {
-  color: var(--title-color);
+  color: var(--first-color);
+  transform: translateX(5px);
 }
 
+/* Baris Bawah: Kredit */
 .footer__rights {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
   text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--body-color);
 }
 
-.footer__copy, .footer__terms-link {
+body.dark-theme .footer__rights {
+  border-top-color: hsla(195, 90%, 55%, 0.1);
+}
+
+.footer__copy {
   font-size: var(--small-font-size);
   color: var(--text-color-light);
-}
-
-.footer__terms {
-  display: flex;
-  column-gap: 1.5rem;
-  justify-content: center;
-}
-
-.footer__terms-link:hover {
-  color: var(--text-color);
+  line-height: 1.6;
 }
 
 /*========== SCROLL UP ==========*/
@@ -1815,19 +1782,24 @@ body.dark-theme .toolkit__resource:hover {
     grid-template-columns: max-content;
     justify-content: center;
   }
+
   .experience__content {
     padding: 0;
   }
+
   .experience__overlay:nth-child(1) {
     width: 190px;
   }
+
   .experience__overlay:nth-child(2) {
     width: 80px;
   }
+
   .home__info {
     width: 190px;
     padding: 1rem;
   }
+
   .experience__img,
   .video__container {
     padding: 0;
@@ -1841,9 +1813,11 @@ body.dark-theme .toolkit__resource:hover {
     grid-template-columns: .6fr;
     justify-content: center;
   }
+
   .place__container {
     grid-template-columns: repeat(3, max-content);
   }
+
   .subscribe__form {
     width: 470px;
     margin: 0 auto;
@@ -1854,110 +1828,162 @@ body.dark-theme .toolkit__resource:hover {
   body {
     margin: 0;
   }
+
   .nav {
     height: calc(var(--header-height) + 1.5rem);
   }
+
   .nav__link {
     color: var(--white-color);
     text-transform: initial;
   }
+
   .nav__link:hover {
     color: var(--white-color);
   }
+
   .nav__dark {
     position: initial;
   }
+
   .nav__menu {
     display: flex;
     column-gap: 1rem;
   }
+
   .nav__list {
     flex-direction: row;
     column-gap: 4rem;
   }
-  .nav__toggle, .nav__close {
+
+  .nav__toggle,
+  .nav__close {
     display: none;
   }
+
+  /*=============== NAV LOGO ===============*/
+  .nav__logo {
+    /* Memberi warna biru cyan */
+    font-weight: var(--font-semi-bold);
+    /* Membuatnya tebal */
+
+    /* Properti ini untuk merapikan gambar & teks */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    /* Jarak antara gambar dan teks */
+  }
+
+  .nav__logo-img {
+    /* Sesuaikan ukuran logo di navbar */
+    width: 20px;
+    height: 20px;
+  }
+
   .change-theme-name {
     display: none;
   }
+
   .change-theme {
     color: var(--white-color);
   }
+
   .active-link::before {
     background-color: var(--white-color);
   }
+
   .scroll-header .nav__link {
     color: var(--text-color);
   }
+
   .scroll-header .active-link {
     color: var(--title-color);
   }
+
   .scroll-header .active-link::before {
     background-color: var(--title-color);
   }
+
   .scroll-header .change-theme {
     color: var(--text-color);
   }
+
   .section {
     padding: 7rem 0 2rem;
   }
+
   .home__container {
     height: 100vh;
     grid-template-rows: 1.8fr .5fr;
   }
+
   .home__data {
     align-self: flex-end;
   }
+
   .home__social {
     flex-direction: row;
     align-self: flex-end;
     margin-bottom: 3rem;
     column-gap: 2.5rem;
   }
+
   .home__info {
     bottom: 3rem;
   }
+
   .about__container {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
   }
-  .about__data, .about__title {
+
+  .about__data,
+  .about__title {
     text-align: initial;
   }
+
   .about__title {
     margin-bottom: var(--mb-1-5);
   }
+
   .about__description {
     margin-bottom: var(--mb-2);
   }
+
   .discover__container {
     width: 610px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .discover__container,
   .place__container {
     padding-top: 2rem;
   }
+
   .experience__overlay:nth-child(1) {
     width: 363px;
     margin-right: 4rem;
   }
+
   .experience__overlay:nth-child(2) {
     width: 160px;
   }
+
   .subscribe__bg {
     background: none;
     padding: 0;
   }
+
   .subscribe__container {
     background-color: var(--first-color-second);
     padding: 3.5rem 0;
   }
+
   .subscribe__input {
     padding: 0 .5rem;
   }
+
   .footer__rights {
     flex-direction: row;
     justify-content: center;
@@ -1970,66 +1996,85 @@ body.dark-theme .toolkit__resource:hover {
     margin-left: auto;
     margin-right: auto;
   }
+
   .home__container {
     grid-template-rows: 2fr .5fr;
   }
+
   .home__info {
     width: 328px;
     grid-template-columns: 1fr 2fr;
     column-gap: 2rem;
   }
+
   .home__info-title {
     font-size: var(--normal-font-size);
     font-style: italic;
     line-height: 1.4;
     margin-bottom: 0.4rem;
   }
+
   .home__info-img {
     width: 240px;
   }
+
   .about__img-one {
     width: 230px;
   }
+
   .about__img-two {
     width: 290px;
   }
+
   .discover__card {
     width: 237px;
   }
+
   .discover__container {
     width: 700px;
   }
+
   .discover__data {
     left: 1.5rem;
     bottom: 2rem;
   }
+
   .discover__title {
     font-size: var(--h2-font-size);
   }
+
   .experience__content {
     margin: var(--mb-1) 0;
     column-gap: 3.5rem;
   }
+
   .experience__overlay:nth-child(1) {
     width: 463px;
     margin-right: 7rem;
   }
+
   .experience__overlay:nth-child(2) {
     width: 220px;
     top: 3rem;
   }
+
   .video__container {
     grid-template-columns: .7fr;
   }
+
   .video__description {
     padding: 0 8rem;
   }
+
   .place__container {
     gap: 3rem 2rem;
   }
-  .place__card, .place__img {
+
+  .place__card,
+  .place__img {
     height: 263px;
   }
+
   .footer__content {
     justify-items: center;
   }
@@ -2046,7 +2091,9 @@ body.dark-theme .toolkit__resource:hover {
   body {
     margin: 0;
   }
-  .home__container, .home__img {
+
+  .home__container,
+  .home__img {
     height: 640px;
   }
 }
